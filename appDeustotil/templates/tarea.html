@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %} {{ tarea.nombre }} {% endblock %}
+
+{% block contenido %} 
+
+<h2> {{ tarea.nombre }} </h2>
+
+{% if tarea %}
+    <ul>
+        <li>
+            {{ tarea.nombre}}
+        </li>
+        <li>
+            {{ tarea.descripcion }}
+        </li>
+        <li>
+            {{ tarea.fecha_inicio }}
+        </li>
+        <li>
+            {{ tarea.fecha_fin }}
+        </li>
+        <li>
+            {{ tarea.responsable }}
+        </li>
+        <li>
+            {{ tarea.prioridad }}
+        </li>
+        <li>
+            {{ tarea.estado }}
+        </li>
+        <li>
+            {{ tarea.notas }}
+        </li>
+    </ul>
+{% else %}
+<p>No existe este proyecto.</p>
+{% endif %}
+
+{% endblock %}

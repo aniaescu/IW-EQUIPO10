@@ -2,27 +2,27 @@ from django.db import models
 from django.forms import EmailField
 
 class Cliente(models.Model):
-    Nombre = models.CharField()
-    Email = models.EmailField()
-    Telefono = models.CharField()
+    nombre = models.CharField()
+    email = models.EmailField()
+    telefono = models.CharField()
 
     def __str__(self):
-        return self.Nombre
+        return self.nombre
 
 class Empleado(models.Model):
-    DNI = models.CharField(max_length=9)
-    Nombre = models.CharField()
-    Apellidos = models.CharField()
-    Email = models.EmailField()
-    Telefono = models.IntegerField(max_length=9)
+    dni = models.CharField(max_length=9)
+    nombre = models.CharField()
+    apellidos = models.CharField()
+    email = models.EmailField()
+    telefono = models.IntegerField(max_length=9)
 
     def __str__(self):
-        return self.DNI
+        return self.dni
 
 
 class Tarea(models.Model):
-    Nombre = models.CharField()
-    Descripcion = models.CharField()
+    nombre = models.CharField()
+    descripcion = models.CharField()
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField(null=True, blank=True)
     responsable = models.ForeignKey(Empleado)
@@ -32,19 +32,19 @@ class Tarea(models.Model):
     
 
     def __str__(self):
-        return self.Nombre
+        return self.nombre
 
 
 class Proyecto(models.Model):
-    Nombre = models.CharField()
-    Descripcion = models.TextField()
+    nombre = models.CharField()
+    descripcion = models.TextField()
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
-    Presupuesto = models.IntegerField()
-    Cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    Reponsable = models.ForeignKey(Empleado)
-    Tarea = models.ForeignKey(Tarea)
+    presupuesto = models.IntegerField()
+    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    reponsable = models.ForeignKey(Empleado)
+    tarea = models.ForeignKey(Tarea)
 
     def __str__(self):
-        return self.Nombre
+        return self.nombre
 

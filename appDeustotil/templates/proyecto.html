@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block titulo %} {{ proyecto.nombre }} {% endblock %}
+
+{% block contenido %} 
+
+<h2> {{ proyecto.nombre }} </h2>
+
+{% if proyecto %}
+    <ul>
+        <li>
+            {{ proyecto.nombre}}
+        </li>
+        <li>
+            {{ proyecto.descripcion }}
+        </li>
+        <li>
+            {{ proyecto.fecha_inicio }}
+        </li>
+        <li>
+            {{ proyecto.fecha_fin }}
+        </li>
+        <li>
+            {{ proyecto.presupuesto }}
+        </li>
+        <li>
+            {{ proyecto.cliente }}
+        </li>
+        <li>
+            {{ proyecto.reponsable }}
+        </li>
+        <li>
+            {{ proyecto.tarea }}
+        </li>
+    </ul>
+{% else %}
+<p>No existe este proyecto.</p>
+{% endif %}
+
+{% endblock %}

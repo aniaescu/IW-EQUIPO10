@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de proyectos {% endblock %}
+
+{% block contenido %} 
+
+<h2>Proyectos</h2>
+
+{% if proyectos %}
+    <ul>
+    {% for p in proyectos %}
+        <li>
+            <a href="/appDeustotil/proyectos/{{ p.id }}">{{ p.nombre}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+<p>No hay proyectos creados.</p>
+{% endif %}
+
+{% endblock %}

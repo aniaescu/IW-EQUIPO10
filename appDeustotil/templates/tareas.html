@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de tareas {% endblock %}
+
+{% block contenido %} 
+
+<h2>Tareas</h2>
+
+{% if tareas %}
+    <ul>
+    {% for t in tareas %}
+        <li>
+            <a href="/appDeustotil/tareas/{{ t.id }}">{{ t.nombre}}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+<p>No hay tareas creadas.</p>
+{% endif %}
+
+{% endblock %}
