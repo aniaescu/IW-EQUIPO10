@@ -6,15 +6,15 @@
 
 <h2>Proyectos</h2>
 
-{% if proyectos %}
+{% if lista_proyectos %}
     <ul>
-    {% for p in proyectos %}
+    {% for p in lista_proyectos %}
         <li>
-            <a href="/appDeustotil/proyectos/{{ p.id }}">{{ p.nombre}}</a>
+            <a href="{% url 'proyecto' p.id%}">{{ p.nombre}}</a>
         </li>
     {% endfor %}
     </ul>
-{% else %}
+{% else %} 
 <p>No hay proyectos creados.</p>
 {% endif %}
 

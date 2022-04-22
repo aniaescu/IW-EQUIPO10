@@ -5,6 +5,9 @@ from appDeustotil.models import Proyecto, Tarea
 
 # Create your views here.
 
+def index(request):
+    return render(request, 'pagPrincipal.html')
+
 def index_proyecto(request):
     proyectos = get_list_or_404(Proyecto.objects.order_by('fecha_inicio'))
     context = {'lista_proyectos': proyectos}
@@ -21,6 +24,6 @@ def show_tarea(request, tarea_id):
     return render(request, 'tarea.html', context)
 
 def show_proyecto(request, proyecto_id):
-    proyecto = get_object_or_404(Tarea, pk=proyecto_id)
+    proyecto = get_object_or_404(Proyecto, pk=proyecto_id)
     context = {'proyecto': proyecto}
     return render(request, 'proyecto.html', context)

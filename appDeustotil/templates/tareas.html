@@ -6,11 +6,11 @@
 
 <h2>Tareas</h2>
 
-{% if tareas %}
+{% if lista_tareas %}
     <ul>
-    {% for t in tareas %}
+    {% for t in lista_tareas %}
         <li>
-            <a href="/appDeustotil/tareas/{{ t.id }}">{{ t.nombre}}</a>
+            <a href="{% url 'tarea' t.id%}">{{ t.nombre}}</a>
         </li>
     {% endfor %}
     </ul>
