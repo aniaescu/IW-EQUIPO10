@@ -7,32 +7,43 @@
 <h2> {{ proyecto.nombre }} </h2>
 
 {% if proyecto %}
-    <ul>
-        <li>
-            {{ proyecto.nombre}}
-        </li>
-        <li>
-            {{ proyecto.descripcion }}
-        </li>
-        <li>
-            {{ proyecto.fecha_inicio }}
-        </li>
-        <li>
-            {{ proyecto.fecha_fin }}
-        </li>
-        <li>
-            {{ proyecto.presupuesto }}
-        </li>
-        <li>
-            {{ proyecto.cliente }}
-        </li>
-        <li>
-            {{ proyecto.reponsable }}
-        </li>
-        <li>
-            {{ proyecto.tarea }}
-        </li>
-    </ul>
+<table>
+    <tr>
+        <td>Nombre</td>
+        <td>{{ proyecto.nombre }}</td>
+    </tr>
+    <tr>
+        <td>Descripcion</td>
+        <td>{{ proyecto.descripcion }}</td>
+    </tr>
+    <tr>
+        <td>Fecha inicio</td>
+        <td>{{ proyecto.fecha_inicio }}</td>
+    </tr>
+    <tr>
+        <td>Fecha fin</td>
+        <td>{{ proyecto.fecha_fin }}</td>
+    </tr>
+    <tr>
+        <td>Presupuesto</td>
+        <td>{{ proyecto.presupuesto }}</td>
+    </tr>
+    <tr>
+        <td>Cliente</td>
+        <td>{{ proyecto.cliente }}</td>
+    </tr>
+    <tr>
+        <td>Tarea</td>
+        <td>{{ proyecto.tarea }}</td>
+    </tr>
+    <tr>
+        <td>Responsable</td>
+        <td>{{ proyecto.reponsable }}</td>
+    </tr>
+    <tr>
+        <td>Eliminar</td>
+    </tr>
+</table>
 {% else %}
 <p>No existe este proyecto.</p>
 {% endif %}

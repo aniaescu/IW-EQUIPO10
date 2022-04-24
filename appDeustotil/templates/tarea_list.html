@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% if tarea_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Fecha inicio</th>
+                <th>Fecha final</th>
+                <th>Responsable</th>
+                <th>Prioridad</th>
+                <th>Estado</th>
+                <th>Notas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tarea in tarea_list %}
+            <tr>
+                <td>{{ tarea.nombre }}</td>
+                <td>{{ tarea.descripcion }}</td>
+                <td>{{ tarea.fecha_inicio }}</td>
+                <td>{{ tarea.fecha_fin }}</td>
+                <td>{{ tarea.responsable }}</td>
+                <td>{{ tarea.prioridad }}</td>
+                <td>{{ tarea.estado }}</td>
+                <td><a href="{% url 'tarea' tarea.id%}">Leer</a></td>
+            </tr>
+            {% endfor %}     
+        </tbody>
+    </table>
+    <a href="{% url 'tarea_create' %}">Crear</a>
+{% else %}
+    <p>Error</p> 
+{% endif %}  
+{% endblock %}

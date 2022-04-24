@@ -4,31 +4,50 @@ from django.shortcuts import get_list_or_404, get_object_or_404, render, redirec
 from appDeustotil.models import Proyecto, Tarea
 from .forms import ProyectoForm, TareaForm
 from django.views import View
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 
 def index(request):
     return render(request, 'pagPrincipal.html')
 
-def index_proyecto(request):
-    proyectos = get_list_or_404(Proyecto.objects.order_by('fecha_inicio'))
-    context = {'lista_proyectos': proyectos}
-    return render(request, 'proyectos.html', context)
+class TareaListView(ListView):
+    model = Tarea
+    queryset = Tarea.objects.order_by('fecha_inicio')
+    template_name = "tarea_list.html"
 
-def index_tarea(request):
-    tareas = get_list_or_404(Tarea.objects.order_by('fecha_inicio'))
-    context = {'lista_tareas': tareas}
-    return render(request, 'tareas.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(TareaListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de Tareas'
+        return context
 
-def show_tarea(request, tarea_id):
-    tarea = get_object_or_404(Tarea, pk=tarea_id)
-    context = {'tarea': tarea}
-    return render(request, 'tarea.html', context)
+class ProyectoListView(ListView):
+    model = Proyecto
+    queryset = Proyecto.objects.order_by('fecha_inicio')
+    template_name = "proyecto_list.html"
 
-def show_proyecto(request, proyecto_id):
-    proyecto = get_object_or_404(Proyecto, pk=proyecto_id)
-    context = {'proyecto': proyecto}
-    return render(request, 'proyecto.html', context)
+    def get_context_data(self, **kwargs):
+        context = super(ProyectoListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de Proyectos'
+        return context
+
+class TareaDetailView(DetailView):
+    model = Tarea
+    template_name = 'tarea.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(TareaDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalle de la tarea'
+        return context
+
+class ProyectoDetailView(DetailView):
+    model = Proyecto
+    template_name = 'proyecto.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProyectoDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalle del proyecto'
+        return context        
 
 class CreateProyectoView(View):
     # Llamada para mostrar la página con el formulario de creación al usuario
