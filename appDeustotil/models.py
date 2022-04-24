@@ -19,7 +19,6 @@ class Empleado(models.Model):
     def __str__(self):
         return self.dni
 
-
 class Tarea(models.Model):
     prioridad_choices =(('Alta', 'Alta'), ('Media', 'Media'), ('Baja', 'Baja'))
     estado_choices = (('Abierta', 'Abierta'), ('Asignada', 'Asignada'), ('En proceso', 'En proceso'), ('Finalizada', 'Finalizada'))
@@ -38,7 +37,6 @@ class Tarea(models.Model):
     def __str__(self):
         return self.nombre
 
-
 class Proyecto(models.Model):
     nombre = models.CharField(max_length=60)
     descripcion = models.TextField(max_length=120)
@@ -46,9 +44,14 @@ class Proyecto(models.Model):
     fecha_fin = models.DateField()
     presupuesto = models.IntegerField()
     cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    reponsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
     tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)
+    reponsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.nombre
+
+
+
+
 

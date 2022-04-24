@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<form action="{% url 'tarea_create' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <input type="submit" value="Nueva tarea" />
+</form>
+<p>
+    <a href="{% url 'tareas' %}">Volver al inicio</a>
+</p>
+
+{% endblock %}
