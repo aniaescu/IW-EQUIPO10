@@ -1,5 +1,5 @@
 from multiprocessing import context
-from django.shortcuts import get_list_or_404, get_object_or_404, render, redirect
+from django.shortcuts import  render, redirect, get_object_or_404
 
 from appDeustotil.models import Proyecto, Tarea
 from .forms import ProyectoForm, TareaForm
@@ -63,20 +63,11 @@ class CreateProyectoView(View):
     def post(self, request, *args, **kwargs):
         form = ProyectoForm(request.POST)
         if form.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
-            # noticia = Noticia()
-
-            # noticia.titular = form.cleaned_data['titular']
-            # noticia.descripcion = form.cleaned_data['descripcion']
-            # noticia.medio = form.cleaned_data['medio']
-            # noticia.fecha = form.cleaned_data['fecha']
-            # noticia.enlace = form.cleaned_data['enlace']
-            # noticia.categoria = form.cleaned_data['categoria']
-            # noticia.save()
-
+          
             form.save() # Abreviación de lo anterior
 
             # Volvemos a la lista de noticias
-            return redirect('proyectos')
+            return redirect('proyecto_list')
         # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
         return render(request, 'proyecto_create.html', {'form': form})
 
@@ -94,19 +85,25 @@ class CreateTareaView(View):
     def post(self, request, *args, **kwargs):
         form = TareaForm(request.POST)
         if form.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
-            # noticia = Noticia()
-
-            # noticia.titular = form.cleaned_data['titular']
-            # noticia.descripcion = form.cleaned_data['descripcion']
-            # noticia.medio = form.cleaned_data['medio']
-            # noticia.fecha = form.cleaned_data['fecha']
-            # noticia.enlace = form.cleaned_data['enlace']
-            # noticia.categoria = form.cleaned_data['categoria']
-            # noticia.save()
+            
 
             form.save() # Abreviación de lo anterior
 
             # Volvemos a la lista de noticias
-            return redirect('tareas')
+            return redirect('tarea_list')
         # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
-        return render(request, 'tarea_create.html', {'form': form})        
+        return render(request, 'tarea_create.html', {'form': form})  
+
+def ProyectoDelete(request, pk):
+#    proyect = get_object_or_404(Proyecto, id = pk)
+#    proyect.delete()
+    Proyecto.objects.filter(id = pk).delete()
+
+    return redirect('proyecto_list')
+
+def TareaDelete(request, pk):
+#    tare = get_object_or_404(Tarea, id = pk)
+#    tare.delete()
+    Tarea.objects.filter(id = pk).delete()
+
+    return redirect('tarea_list')    

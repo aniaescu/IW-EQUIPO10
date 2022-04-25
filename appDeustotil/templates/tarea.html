@@ -41,7 +41,7 @@
         <td>{{ tarea.notas }}</td>
     </tr>
     <tr>
-        <td>Eliminar</td>
+        <td><a href="{% url 'tarea_delete' tarea.id%}">Eliminar</a></td>
     </tr>
 </table>
    

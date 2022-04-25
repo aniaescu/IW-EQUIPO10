@@ -41,7 +41,7 @@
         <td>{{ proyecto.reponsable }}</td>
     </tr>
     <tr>
-        <td>Eliminar</td>
+        <td><a href="{% url 'proyecto_delete' proyecto.id%}">Eliminar</a></td>
     </tr>
 </table>
 {% else %}
