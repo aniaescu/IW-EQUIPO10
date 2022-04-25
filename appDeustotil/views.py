@@ -106,4 +106,55 @@ def TareaDelete(request, pk):
 #    tare.delete()
     Tarea.objects.filter(id = pk).delete()
 
-    return redirect('tarea_list')    
+    return redirect('tarea_list')   
+
+class TareaModificar(View):
+    # Llamada para mostrar la página con el formulario de creación al usuario
+    def get(self, request, pk, *args, **kwargs):
+        tarea = Tarea.objects.get(id = pk)
+        form = TareaForm(instance = tarea)
+        context = {
+            'form': form,
+            'titulo_pagina': 'Modificar tarea'
+        }
+        return render(request, 'tarea_modificar.html', context)
+
+    # Llamada para procesar la creación de la noticia
+    def post(self, request, pk,  *args, **kwargs):
+        tarea = Tarea.objects.get(id = pk)
+        form = TareaForm(request.POST, instance = tarea)
+        if form.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
+            
+
+            form.save() # Abreviación de lo anterior
+
+            # Volvemos a la lista de noticias
+            return redirect('tarea_list')
+        # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
+        return render(request, 'tarea_modificar.html', {'form': form})  
+
+
+class ProyectoModificar(View):
+    # Llamada para mostrar la página con el formulario de creación al usuario
+    def get(self, request, pk, *args, **kwargs):
+        proyecto = Proyecto.objects.get(id = pk)
+        form = ProyectoForm(instance = proyecto)
+        context = {
+            'form': form,
+            'titulo_pagina': 'Modificar proyecto'
+        }
+        return render(request, 'proyecto_modificar.html', context)
+
+    # Llamada para procesar la creación de la noticia
+    def post(self, request, pk,  *args, **kwargs):
+        proyecto = Proyecto.objects.get(id = pk)
+        form = ProyectoForm(request.POST, instance = proyecto)
+        if form.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
+            
+
+            form.save() # Abreviación de lo anterior
+
+            # Volvemos a la lista de noticias
+            return redirect('proyecto_list')
+        # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
+        return render(request, 'proyecto_modificar.html', {'form': form})  

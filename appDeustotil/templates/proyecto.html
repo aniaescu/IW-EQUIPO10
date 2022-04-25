@@ -43,6 +43,9 @@
     <tr>
         <td><a href="{% url 'proyecto_delete' proyecto.id%}">Eliminar</a></td>
     </tr>
+    <tr>
+        <td><a href="{% url 'proyecto_modificar' proyecto.id%}">Modificar</a></td>
+    </tr>
 </table>
 {% else %}
 <p>No existe este proyecto.</p>
