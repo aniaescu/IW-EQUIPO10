@@ -3,7 +3,17 @@
 {% block titulo %} Deustotil {% endblock %}
 
 {% block contenido %} 
-<a href="{% url 'proyecto_list' %}">Proyectos</a>
-<br>
-<a href="{% url 'tarea_list' %}">Tareas</a>
+<div id="divPagPrincipal">
+    <div class="divPP">
+        <h2>PROYECTOS</h2>
+        <p>Descripcion de proyectos</p>
+        <a href="{% url 'proyecto_list' %}" class="botonInfo">Más información</a>
+    </div>
+    <div class="divPP">
+        <h2>TAREAS</h2>
+        <p>Descripcion de tareas</p>
+        <a href="{% url 'tarea_list' %}" class="botonInfo">Más información</a>
+    </div>
+</div>
+
 {% endblock %}

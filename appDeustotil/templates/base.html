@@ -1,12 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
         <title>{% block titulo %}Deustotil Tech S.L.{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     </head>
     <body>
         <header>
             <h1>Deustotil Tech S.L.</h1>
+            <section id="indicePrincipal">
+                <a href="{% url 'pagPrincipal' %}" class="elementoIndicePrincipal">Inicio</a>
+                <a href="{% url 'proyecto_list' %}" class="elementoIndicePrincipal">Proyectos</a>
+                <a href="{% url 'tarea_list' %}" class="elementoIndicePrincipal">Tareas</a>
+            </section>
         </header>
 
         <main id="content">
