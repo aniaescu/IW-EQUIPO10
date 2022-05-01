@@ -4,7 +4,17 @@
 
 {% block contenido %} 
 
-<h2> {{ proyecto.nombre }} </h2>
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ proyecto.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'proyecto_modificar' proyecto.id%}" class="botonInfo">Modificar</a>
+        <a href="{% url 'proyecto_delete' proyecto.id%}" class="botonInfo">Eliminar</a>
+    </section>
+</article>
 
 {% if proyecto %}
 <table>
@@ -39,12 +49,6 @@
     <tr>
         <td>Responsable</td>
         <td>{{ proyecto.reponsable }}</td>
-    </tr>
-    <tr>
-        <td><a href="{% url 'proyecto_delete' proyecto.id%}">Eliminar</a></td>
-    </tr>
-    <tr>
-        <td><a href="{% url 'proyecto_modificar' proyecto.id%}">Modificar</a></td>
     </tr>
 </table>
 {% else %}

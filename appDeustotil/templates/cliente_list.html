@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<!--Titulo y botón de crear nuevo elemento-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>Clientes</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'cliente_create' %}" class="botonInfo">Añadir</a>
+    </section>
+</article>
+
+<!--Listado clientes con informacion adicional-->
+{% if cliente_list %}
+    <table class="tablaList">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in cliente_list %}
+            <tr>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td><a href="{% url 'cliente' cliente.id%}" id="botonMasInfo">Más información</a></td>
+            </tr>
+            {% endfor %}     
+        </tbody>
+    </table>
+{% else %}
+    <p>Error</p> 
+{% endif %}  
+{% endblock %}

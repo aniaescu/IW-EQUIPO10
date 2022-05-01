@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<!--Titulo y botón de crear nuevo elemento-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>Empleados</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'empleado_create' %}" class="botonInfo">Añadir</a>
+    </section>
+</article>
+
+<!--Listado empleados con informacion adicional-->
+{% if empleado_list %}
+    <table class="tablaList">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleado_list %}
+            <tr>
+                <td>{{ empleado.dni }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellidos }}</td>
+                <td><a href="{% url 'empleado' empleado.id%}" id="botonMasInfo">Más información</a></td>
+            </tr>
+            {% endfor %}     
+        </tbody>
+    </table>
+{% else %}
+    <p>Error</p> 
+{% endif %}  
+{% endblock %}

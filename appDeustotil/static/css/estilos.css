@@ -1,20 +1,44 @@
+/* BASE.HTML */
+
 body{
     background-color: gainsboro;
     margin: 0;
 }
 
-header{
-    text-align: center;
-    background-color: black;
-    color: gainsboro;
-    padding: 5px 0 20px 0;
-}
+    /* Header */
 
-h1{
-    border-bottom: solid 1px gainsboro;
-    padding-bottom: 10px;
-    font-size: 40px;
-}
+    header{
+        text-align: center;
+        background-color: black;
+        color: gainsboro;
+        padding: 5px 0 20px 0;
+    }
+
+    h1{
+        border-bottom: solid 1px gainsboro;
+        padding-bottom: 10px;
+        font-size: 40px;
+    }
+
+    #indicePrincipal{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-left: 660px;
+    }
+    
+        .elementoIndicePrincipal{
+            color: gainsboro;
+        }
+    
+    /* Main */
+
+    main{
+        margin: 0;
+        height: 100px;
+    }
+
+/* Elementos generales */
 
 h2{
     margin: 0;
@@ -26,7 +50,7 @@ p{
 }
 
 a{
-    color: black;
+    
     text-decoration: none;
 }
 
@@ -34,45 +58,114 @@ a:hover{
     text-decoration: underline;
 }
 
-main{
-    margin: 0;
-    height: 494px;
-}
-
-#indicePrincipal{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-left: 660px;
-}
-
-.elementoIndicePrincipal{
-    color: gainsboro;
-}
 
 /* PAGINA PRINCIPAL */
 
 #divPagPrincipal{
-    height: 494px;
+    height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.divPP{
-    border-right: solid 2px black;
-    width:fit-content;
-    flex-basis: 50%;
+    .divPP{
+        border-right: solid 2px black;
+        width:fit-content;
+        flex-basis: 50%;
+        display: flex;
+        justify-content: space-evenly;
+        height: 334px;
+        align-items: center;
+        flex-direction: column;
+        padding: 80px 0 80px 0;
+    }
+
+        .botonInfo{
+            border: solid black 2px;
+            padding: 10px;
+            background-color: grey;
+            color: black;
+            margin: 0 5px 0 5px;
+        }
+
+/* LISTA DE PROYECTOS */
+
+#zonaSupList{
     display: flex;
-    justify-content: space-evenly;
-    height: 334px;
+    flex-direction: row;
     align-items: center;
-    flex-direction: column;
-    padding: 80px 0 80px 0;
+    margin: 10px 0 30px 0;
+    justify-content: space-evenly;
 }
 
-.botonInfo{
-    border: solid black 2px;
-    padding: 10px;
-    background-color: grey;
+#botonCrear{
+    display: flex;
+    justify-content: right;
+    padding-right: 10px;
 }
+
+.elementoZonaSupList{
+    display: flex;
+    justify-content: center;
+    flex-basis: 33%;
+}
+
+li{
+    display: flex;
+    flex-direction: row;
+}
+
+#nombreProyecto{
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.elementoListaProyecto{
+    margin: 0 40px 0 40px;
+    display: flex;
+    align-self: center;
+}
+
+#botonMasInfo{
+    border: solid black 1px;
+    padding: 5px;
+    margin: 0 20px 0 20px;
+    background-color: black;
+    color: gainsboro;
+}
+
+/*LISTA DE TAREAS*/
+#listadoTareas{
+    display: flex;
+    margin: 0 10px 0 10px;
+    flex-wrap: wrap;
+}
+
+#cuadradoTarea{
+    border: solid black 1px;
+    height: 50px;
+    width: 402px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: gainsboro;
+}
+
+/*LISTA DE EMPLEADOS*/
+.tablaList{
+    width: 100%;
+    text-align: center;
+}
+
+th, td{
+    padding: 10px;
+}
+
+table{
+    margin: 20px;
+}
+
+
+   

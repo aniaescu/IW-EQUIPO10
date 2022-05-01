@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block titulo %} {{ cliente.nombre }} {% endblock %}
+
+{% block contenido %} 
+
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ cliente.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'cliente_modificar' cliente.id%}" class="botonInfo">Modificar</a>
+        <a href="{% url 'cliente_delete' cliente.id%}" class="botonInfo">Eliminar</a>
+    </section>
+</article>
+
+{% if cliente %}
+<table>
+    <tr>
+        <td>Nombre</td>
+        <td>{{ cliente.nombre}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ cliente.email }}</td>
+    </tr>
+    <tr>
+        <td>Teléfono</td>
+        <td>{{ cliente.telefono }}</td>
+    </tr>
+</table>
+   
+{% else %}
+<p>No existe este cliente.</p>
+{% endif %}
+
+{% endblock %}

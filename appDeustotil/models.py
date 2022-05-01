@@ -32,8 +32,6 @@ class Tarea(models.Model):
     estado = models.CharField(max_length=16, choices= estado_choices, default=('Abierta'))
     notas = models.TextField(null=True, blank=True)
     
-    
-
     def __str__(self):
         return self.nombre
 
@@ -48,7 +46,6 @@ class Proyecto(models.Model):
     tarea = models.ForeignKey(Tarea, on_delete=models.CASCADE)
     reponsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
     
-
     def __str__(self):
         return self.nombre
 

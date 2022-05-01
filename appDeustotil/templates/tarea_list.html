@@ -1,7 +1,31 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+<!--Titulo y botón de crear nuevo elemento-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>Tareas</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'tarea_create' %}" class="botonInfo">Añadir</a>
+    </section>
+</article>
+
+<!--Listado tareas-->
 {% if tarea_list %}
+    <section id="listadoTareas">
+        {% for tarea in tarea_list %}
+        <div id="cuadradoTarea"> <a href="{% url 'tarea' tarea.id%}" class="elementoIndicePrincipal">{{ tarea.nombre }}</a></div>
+        {% endfor %}  
+    </section>
+{% else %}
+    <p>Error</p> 
+{% endif %}  
+{% endblock %}
+
+<!--
     <table>
         <thead>
             <tr>
@@ -30,8 +54,4 @@
             {% endfor %}     
         </tbody>
     </table>
-    <a href="{% url 'tarea_create' %}">Crear</a>
-{% else %}
-    <p>Error</p> 
-{% endif %}  
-{% endblock %}
+-->

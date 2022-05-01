@@ -4,7 +4,17 @@
 
 {% block contenido %} 
 
-<h2> {{ tarea.nombre }} </h2>
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ tarea.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'tarea_modificar' tarea.id%}" class="botonInfo">Modificar</a>
+        <a href="{% url 'tarea_delete' tarea.id%}" class="botonInfo">Eliminar</a>
+    </section>
+</article>
 
 {% if tarea %}
 <table>
@@ -39,12 +49,6 @@
     <tr>
         <td>Notas</td>
         <td>{{ tarea.notas }}</td>
-    </tr>
-    <tr>
-        <td><a href="{% url 'tarea_delete' tarea.id%}">Eliminar</a></td>
-    </tr>
-    <tr>
-        <td><a href="{% url 'tarea_modificar' tarea.id%}">Modificar</a></td>
     </tr>
 </table>
    

@@ -1,38 +1,36 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-{% if proyecto_list %}
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Fecha inicio</th>
-                <th>Fecha final</th>
-                <th>Presupuesto</th>
-                <th>Cliente</th>
-                <th>Tarea</th>
-                <th>Responsable</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for proyecto in proyecto_list %}
-            <tr>
-                <td>{{ proyecto.nombre }}</td>
-                <td>{{ proyecto.descripcion }}</td>
-                <td>{{ proyecto.fecha_inicio }}</td>
-                <td>{{ proyecto.fecha_fin }}</td>
-                <td>{{ proyecto.presupuesto }}</td>
-                <td>{{ proyecto.cliente }}</td>
-                <td>{{ proyecto.tarea }}</td>
-                <td>{{ proyecto.reponsable }}</td>
-                <td><a href="{% url 'proyecto' proyecto.id%}">Leer</a></td>
-            </tr>
-            {% endfor %}     
-        </tbody>
-    </table>
-    <a href="{% url 'proyecto_create' %}">Crear</a>
-{% else %}
-    <p>Error</p> 
-{% endif %}  
+<!--Titulo y botón de crear nuevo elemento-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>Proyectos</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'proyecto_create' %}" class="botonInfo">Añadir</a>
+    </section>
+</article>
+
+<!--Listado proyectos con informacion adicional-->
+<div>
+    {% if proyecto_list %}
+        <ul>
+        {% for proyecto in proyecto_list %}
+            <li> -
+                 <div id="nombreProyecto" class="elementoListaProyecto"> {{ proyecto.nombre }} </div> 
+                 <div class="elementoListaProyecto">Presupuesto: {{ proyecto.presupuesto }}</div> 
+                 <div class="elementoListaProyecto">DNI del responsable: {{ proyecto.reponsable }}</div> 
+                 <div class="elementoListaProyecto">Nombre del cliente: {{ proyecto.cliente }}</div>
+                 <div class="elementoListaProyecto" ><a href="{% url 'proyecto' proyecto.id%}" id="botonMasInfo">Más información</a> </div>
+            </li>
+        {% endfor %} 
+        </ul>
+
+    {% else %}
+    <p>No hay proyectos en esta base de datos.</p> 
+    {% endif %}  
+
+</div>
 {% endblock %}

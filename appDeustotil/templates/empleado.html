@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block titulo %} {{ empleado.nombre }} {% endblock %}
+
+{% block contenido %} 
+
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ empleado.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'empleado_modificar' empleado.id%}" class="botonInfo">Modificar</a>
+        <a href="{% url 'empleado_delete' empleado.id%}" class="botonInfo">Eliminar</a>
+    </section>
+</article>
+
+{% if empleado %}
+<table>
+    <tr>
+        <td><strong>DNI</strong></td>
+        <td>{{ empleado.dni }}</td>
+    </tr>
+    <tr>
+        <td><strong>Nombre</strong></td>
+        <td>{{ empleado.nombre}}</td>
+    </tr>
+    <tr>
+        <td><strong>Apellidos</strong></td>
+        <td>{{ empleado.apellidos }}</td>
+    </tr>
+    <tr>
+        <td><strong>Email</strong></td>
+        <td>{{ empleado.email }}</td>
+    </tr>
+    <tr>
+        <td><strong>Teléfono</strong></td>
+        <td>{{ empleado.telefono }}</td>
+    </tr>
+</table>
+   
+{% else %}
+<p>No existe este empleado.</p>
+{% endif %}
+
+{% endblock %}
