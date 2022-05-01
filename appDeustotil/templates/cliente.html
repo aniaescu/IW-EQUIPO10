@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block titulo %} {{ cliente.nombre }} {% endblock %}
+
+{% block contenido %} 
+
+<h2> {{ cliente.nombre }} </h2>
+
+{% if cliente %}
+<table>
+    <tr>
+        <td>Nombre</td>
+        <td>{{ cliente.nombre}}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ cliente.email }}</td>
+    </tr>
+    <tr>
+        <td>Teléfono</td>
+        <td>{{ cliente.telefono }}</td>
+    </tr>
+
+    <tr>
+        <td><a href="{% url 'cliente_delete' cliente.id%}">Eliminar</a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'cliente_modificar' cliente.id%}">Modificar</a></td>
+    </tr>
+</table>
+   
+{% else %}
+<p>No existe este cliente.</p>
+{% endif %}
+
+{% endblock %}

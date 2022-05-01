@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% if cliente_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in cliente_list %}
+            <tr>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ cliente.telefono }}</td>
+                <td><a href="{% url 'cliente' cliente.id%}">Leer</a></td>
+            </tr>
+            {% endfor %}     
+        </tbody>
+    </table>
+    <a href="{% url 'cliente_create' %}">Crear</a>
+{% else %}
+    <p>Error</p> 
+{% endif %}  
+{% endblock %}
