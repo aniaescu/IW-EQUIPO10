@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block titulo %} {{ empleado.nombre }} {% endblock %}
+
+{% block contenido %} 
+
+<h2> {{ empleado.nombre }} </h2>
+
+{% if empleado %}
+<table>
+    <tr>
+        <td>DNI</td>
+        <td>{{ empleado.dni }}</td>
+    </tr>
+    <tr>
+        <td>Nombre</td>
+        <td>{{ empleado.nombre}}</td>
+    </tr>
+    <tr>
+        <td>Apellidos</td>
+        <td>{{ empleado.apellidos }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ empleado.email }}</td>
+    </tr>
+    <tr>
+        <td>Teléfono</td>
+        <td>{{ empleado.telefono }}</td>
+    </tr>
+    
+    <tr>
+        <td><a href="{% url 'empleado_delete' empleado.id%}">Eliminar</a></td>
+    </tr>
+    <tr>
+        <td><a href="{% url 'empleado_modificar' empleado.id%}">Modificar</a></td>
+    </tr>
+</table>
+   
+{% else %}
+<p>No existe este empleado.</p>
+{% endif %}
+
+{% endblock %}

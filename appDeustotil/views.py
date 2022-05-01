@@ -1,8 +1,8 @@
 from multiprocessing import context
 from django.shortcuts import  render, redirect, get_object_or_404
 
-from appDeustotil.models import Proyecto, Tarea
-from .forms import ProyectoForm, TareaForm
+from appDeustotil.models import Proyecto, Tarea, Empleado
+from .forms import ProyectoForm, TareaForm, EmpleadoForm
 from django.views import View
 from django.views.generic import ListView, DetailView
 
@@ -158,3 +158,77 @@ class ProyectoModificar(View):
             return redirect('proyecto_list')
         # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
         return render(request, 'proyecto_modificar.html', {'form': form})  
+
+class EmpleadoListView(ListView):
+    model = Empleado
+    queryset = Empleado.objects.order_by('dni')
+    template_name = "empleado_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoListView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Listado de Empleados'
+        return context
+
+class EmpleadoDetailView(DetailView):
+    model = Empleado
+    template_name = 'empleado.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
+        context['titulo_pagina'] = 'Detalle del empleado'
+        return context
+
+class CreateEmpleadoView(View):
+    # Llamada para mostrar la página con el formulario de creación al usuario
+    def get(self, request, *args, **kwargs):
+        form = EmpleadoForm()
+        context = {
+            'form': form,
+            'titulo_pagina': 'Nuevo empleado'
+        }
+        return render(request, 'empleado_create.html', context)
+
+    # Llamada para procesar la creación del empleado
+    def post(self, request, *args, **kwargs):
+        form = EmpleadoForm(request.POST)
+        if form.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
+            
+
+            form.save() # Abreviación de lo anterior
+
+            # Volvemos a la lista de noticias
+            return redirect('empleado_list')
+        # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
+        return render(request, 'empleado_create.html', {'form': form})  
+
+def EmpleadoDelete(request, pk):
+#    tare = get_object_or_404(Tarea, id = pk)
+#    tare.delete()
+    Empleado.objects.filter(id = pk).delete()
+
+    return redirect('empleado_list')   
+
+class EmpleadoModificar(View):
+    # Llamada para mostrar la página con el formulario de creación al usuario
+    def get(self, request, pk, *args, **kwargs):
+        empleado = Empleado.objects.get(id = pk)
+        form = EmpleadoForm(instance = empleado)
+        context = {
+            'form': form,
+            'titulo_pagina': 'Modificar empleado'
+        }
+        return render(request, 'empleado_modificar.html', context)
+
+    # Llamada para procesar la creación de la noticia
+    def post(self, request, pk,  *args, **kwargs):
+        empleado = Empleado.objects.get(id = pk)
+        form = EmpleadoForm(request.POST, instance = empleado)
+        if form.is_valid(): # is_valid() deja los datos validados en el atributo cleaned_data
+            
+
+            form.save() # Abreviación de lo anterior
+
+            # Volvemos a la lista de noticias
+            return redirect('empleado_list')
+        # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
+        return render(request, 'empleado_modificar.html', {'form': form})  

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+{% if empleado_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for empleado in empleado_list %}
+            <tr>
+                <td>{{ empleado.dni }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellidos }}</td>
+                <td>{{ empleado.email }}</td>
+                <td>{{ empleado.telefono }}</td>
+                <td><a href="{% url 'empleado' empleado.id%}">Leer</a></td>
+            </tr>
+            {% endfor %}     
+        </tbody>
+    </table>
+    <a href="{% url 'empleado_create' %}">Crear</a>
+{% else %}
+    <p>Error</p> 
+{% endif %}  
+{% endblock %}
