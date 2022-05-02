@@ -4,18 +4,21 @@
 
 {% block contenido %} 
 
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
 <article id="zonaSupList">
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
         <h2>{{ proyecto.nombre }}</h2>
     </section>
+    <!--Botones para navegar por diferentes paginas-->
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'proyecto_modificar' proyecto.id%}" class="botonInfo">Modificar</a>
         <a href="{% url 'proyecto_delete' proyecto.id%}" class="botonInfo">Eliminar</a>
     </section>
 </article>
 
+<!--Visualizacion de informacion de proyecto a traves de una tabla (en caso de que exista)-->
 {% if proyecto %}
 <table>
     <tr>

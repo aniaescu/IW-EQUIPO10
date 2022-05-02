@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-
+<!--Formulario para modificar el empleado-->
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
     <input type="submit" value="Modificar empleado" />
 </form>
+<!--Boton para volver a la lista de empleados-->
 <p>
     <a href="{% url 'empleado_list' %}">Volver al inicio</a>
 </p>

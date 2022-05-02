@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-
+<!--Formulario para modificar la tarea-->
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
     <input type="submit" value="Modificar tarea" />
 </form>
+<!--Boton para volver a la lista de tareas-->
 <p>
     <a href="{% url 'tarea_list' %}">Volver al inicio</a>
 </p>

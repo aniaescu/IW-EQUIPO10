@@ -167,5 +167,12 @@ table{
     margin: 20px;
 }
 
+/* */
 
+#formulario{
+    display: flex;
+    line-height: normal;
+    margin-right: 100px;
+    border-right: 100px;
+}
    

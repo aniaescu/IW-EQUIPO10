@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
 
-{% block contenido %}
+{% block titulo %} {{ cliente.nombre }} {% endblock %}
 
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_ul }}
-    <input type="submit" value="Modificar cliente" />
-</form>
-<p>
-    <a href="{% url 'cliente_list' %}">Volver al inicio</a>
-</p>
+{% block contenido %}
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ cliente.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'cliente_list'}" class="botonInfo">Volver al inicio</a>
+    </section>
+</article>
+<!--Formulario para modificar el cliente-->
+<article id = "formulario">
+    <form  action="" method="post">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input id="botonMasInfo" type="submit" value="Modificar cliente" />
+    </form>
+</article>
+
 
 {% endblock %}

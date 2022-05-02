@@ -4,18 +4,21 @@
 
 {% block contenido %} 
 
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
 <article id="zonaSupList">
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
         <h2>{{ tarea.nombre }}</h2>
     </section>
+    <!--Botones para navegar por diferentes paginas-->    
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'tarea_modificar' tarea.id%}" class="botonInfo">Modificar</a>
         <a href="{% url 'tarea_delete' tarea.id%}" class="botonInfo">Eliminar</a>
     </section>
 </article>
 
+<!--Visualizacion de informacion de empelado a traves de una tabla (en caso de que exista)-->
 {% if tarea %}
 <table>
     <tr>
@@ -46,10 +49,13 @@
         <td>Estado</td>
         <td>{{ tarea.estado }}</td>
     </tr>
+    <!--En caso de que la tarea no tenga notas que no aparezca-->
+    {% if tarea.notas %}
     <tr>
         <td>Notas</td>
         <td>{{ tarea.notas }}</td>
     </tr>
+    {% endif %}
 </table>
    
 {% else %}

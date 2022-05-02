@@ -2,6 +2,7 @@ from unicodedata import name
 from django.urls import path
 from . import views
 
+# URL para poder visulizar las paginas con sus respectivas vistas
 urlpatterns = [
     path('', views.index, name='pagPrincipal'),
     path('proyectos/', views.ProyectoListView.as_view(), name='proyecto_list'),

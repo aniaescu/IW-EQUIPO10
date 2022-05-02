@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import EmailField
 
+# Clase cliente
 class Cliente(models.Model):
     nombre = models.CharField(max_length=60)
     email = models.EmailField()
@@ -9,6 +10,7 @@ class Cliente(models.Model):
     def __str__(self):
         return self.nombre
 
+# Clase empleado
 class Empleado(models.Model):
     dni = models.CharField(max_length=9)
     nombre = models.CharField(max_length=60)
@@ -19,6 +21,7 @@ class Empleado(models.Model):
     def __str__(self):
         return self.dni
 
+# Clase Tarea
 class Tarea(models.Model):
     prioridad_choices =(('Alta', 'Alta'), ('Media', 'Media'), ('Baja', 'Baja'))
     estado_choices = (('Abierta', 'Abierta'), ('Asignada', 'Asignada'), ('En proceso', 'En proceso'), ('Finalizada', 'Finalizada'))
@@ -35,7 +38,7 @@ class Tarea(models.Model):
     def __str__(self):
         return self.nombre
 
-
+#Clase Proyecto
 class Proyecto(models.Model):
     nombre = models.CharField(max_length=60)
     descripcion = models.TextField(max_length=120)

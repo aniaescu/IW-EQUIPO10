@@ -4,18 +4,21 @@
 
 {% block contenido %} 
 
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
 <article id="zonaSupList">
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
         <h2>{{ empleado.nombre }}</h2>
     </section>
+    <!--Botones para navegar por diferentes paginas-->
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'empleado_modificar' empleado.id%}" class="botonInfo">Modificar</a>
         <a href="{% url 'empleado_delete' empleado.id%}" class="botonInfo">Eliminar</a>
     </section>
 </article>
 
+<!--Visualizacion de informacion de empelado a traves de una tabla (en caso de que exista)-->
 {% if empleado %}
 <table>
     <tr>

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block titulo %} Deustotil {% endblock %}
-
+<!--Pagina principal, para poder navegar al resto de paginas-->
 {% block contenido %} 
 <div id="divPagPrincipal">
     <div class="divPP">
@@ -16,7 +16,7 @@
     </div>
     <div class="divPP">
         <h2>EMPLEADOS</h2>
-        <p>Quienes forman parte nuestra</p>
+        <p>Nuestros empleados</p>
         <a href="{% url 'empleado_list' %}" class="botonInfo">Más información</a>
     </div>
     <div class="divPP">

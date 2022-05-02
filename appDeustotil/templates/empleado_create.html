@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-
+<!--Formulario para crear empleado-->
 <form action="{% url 'empleado_create' %}" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
     <input type="submit" value="Nuevo empleado" />
 </form>
+<!--Boton para volver al inicio-->
 <p>
     <a href="{% url 'empleado_list' %}">Volver al inicio</a>
 </p>
