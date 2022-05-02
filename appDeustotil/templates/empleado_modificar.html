@@ -6,7 +6,6 @@
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
-        <h2>{{ empleado.nombre }}</h2>
     </section>
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'empleado_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de empleados-->
@@ -17,7 +16,7 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input id="botonModificar" type="submit" value="Modificar cliente">
+    <input id="botonFormulario" type="submit" value="Modificar cliente">
 </form>
 
 {% endblock %}
