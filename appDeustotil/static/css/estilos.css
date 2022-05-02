@@ -46,7 +46,8 @@ h2{
 }
 
 p{
-    margin: 0;
+    margin: 30px;
+    text-align: center;
 }
 
 a{
@@ -129,7 +130,7 @@ li{
 #botonMasInfo{
     border: solid black 1px;
     padding: 5px;
-    margin: 0 20px 0 20px;
+    margin: 5px 20px 5px 20px;
     background-color: black;
     color: gainsboro;
 }
