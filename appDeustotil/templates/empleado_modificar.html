@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ empleado.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'empleado_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de empleados-->
+    </section>
+</article>
+
 <!--Formulario para modificar el empleado-->
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input type="submit" value="Modificar empleado" />
+    <input id="botonModificar" type="submit" value="Modificar cliente">
 </form>
-<!--Boton para volver a la lista de empleados-->
-<p>
-    <a href="{% url 'empleado_list' %}">Volver al inicio</a>
-</p>
 
 {% endblock %}

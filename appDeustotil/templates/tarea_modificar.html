@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ tarea.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'tarea_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de tareas-->
+    </section>
+</article>
+
 <!--Formulario para modificar la tarea-->
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input type="submit" value="Modificar tarea" />
+    <input id="botonModificar" type="submit" value="Modificar tarea">
 </form>
-<!--Boton para volver a la lista de tareas-->
-<p>
-    <a href="{% url 'tarea_list' %}">Volver al inicio</a>
-</p>
 
 {% endblock %}

@@ -1,15 +1,24 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
+
+<!--Parte superior de la lista donde encontramos el titulo y los botones-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList">
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>{{ proyecto.nombre }}</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'proyecto_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de proyectos-->
+    </section>
+</article>
+
 <!--Formulario para modificar el proyecto-->
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input type="submit" value="Modificar proyecto" />
+    <input id="botonModificar" type="submit" value="Modificar proyecto">
 </form>
-<!--Boton para volver a la lista de proyectos-->
-<p>
-    <a href="{% url 'proyecto_list' %}">Volver al inicio</a>
-</p>
 
 {% endblock %}
