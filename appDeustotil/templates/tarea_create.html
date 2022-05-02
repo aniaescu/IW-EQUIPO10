@@ -6,6 +6,7 @@
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
+        <h2>Nueva tarea</h2>
     </section>
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'tarea_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de clientes-->
@@ -16,7 +17,7 @@
 <form action="{% url 'tarea_create' %}" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input id="botonFormulario" type="submit" value="Nueva tarea" />
+    <input id="botonFormulario" type="submit" value="Añadir tarea" />
 </form>
 
 {% endblock %}

@@ -8,17 +8,18 @@
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
+        <h2>Modificar cliente</h2>
     </section>
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'cliente_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de clientes-->
     </section>
 </article>
 <!--Formulario para modificar el cliente-->
-<article id = "formulario">
+<article>
     <form  action="" method="post">
         {% csrf_token %}
         {{ form.as_ul }}
-        <input id="botonFormulario" type="submit" value="Modificar cliente" />
+        <input id="botonFormulario" type="submit" value="Actualizar"/>
     </form>
 </article>
 

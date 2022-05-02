@@ -7,6 +7,7 @@
     <section class="elementoZonaSupList">
     </section>
     <section class="elementoZonaSupList">
+        <h2>Modificar proyecto</h2>
     </section>
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'proyecto_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de proyectos-->
@@ -17,7 +18,7 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_ul }}
-    <input id="botonFormulario" type="submit" value="Modificar proyecto">
+    <input id="botonFormulario" type="submit" value="Actualizar">
 </form>
 
 {% endblock %}
