@@ -1,59 +1,197 @@
-from multiprocessing import context
-from django.shortcuts import  render, redirect, get_object_or_404
 
+from django.shortcuts import  render, redirect, get_object_or_404
 from appDeustotil.models import Proyecto, Tarea, Empleado, Cliente
 from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm
 from django.views import View
 from django.views.generic import ListView, DetailView
+from django.db.models import Q, Case, When
 
 # Clase creada para visualizar la pagina principal
 def index(request):
     return render(request, 'pagPrincipal.html')
 
 # Clase creada para visualizar las tareas ordenados por fecha inicio.
-class TareaListView(ListView):
-    model = Tarea
-    queryset = Tarea.objects.order_by('fecha_inicio')
-    template_name = "tarea_list.html"
+#class TareaListView(ListView):
+#    model = Tarea
+#    queryset = Tarea.objects.order_by('fecha_inicio')
+#    template_name = "tarea_list.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(TareaListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Tareas'
-        return context
+#    def get_context_data(self, **kwargs):
+#        context = super(TareaListView, self).get_context_data(**kwargs)
+#        context['titulo_pagina'] = 'Listado de Tareas'
+#        return context
+
+
+
+def TareaListView(request):
+    busqueda = request.GET.get("buscar")
+    select = request.GET.get("select")
+    tarea = Tarea.objects.all()
+    
+    if select == 'nombre':
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(nombre__icontains = busqueda) 
+                ).distinct()
+    elif select == 'prioridad':  
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(prioridad__icontains = busqueda) 
+                ).distinct()
+    elif select == 'descripcion':  
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(descripcion__icontains = busqueda) 
+                ).distinct()    
+    elif select == 'fecha_inicio':  
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(fecha_inicio__icontains = busqueda) 
+                ).distinct() 
+    elif select == 'fecha_fin':  
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(fecha_fin__icontains = busqueda) 
+                ).distinct() 
+    elif select == 'estado':  
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(estado__icontains = busqueda) 
+                ).distinct()   
+    elif select == 'notas':  
+            if busqueda: 
+                tarea = Tarea.objects.filter(
+                Q(notas__icontains = busqueda) 
+                ).distinct()                       
+                                           
+    
+    return render(request, 'tarea_list.html', {'tarea_list': tarea})          
 
 # Clase creada para visualizar los proyectos ordenados por fecha inicio.
-class ProyectoListView(ListView):
-    model = Proyecto
-    queryset = Proyecto.objects.order_by('fecha_inicio')
-    template_name = "proyecto_list.html"
+#class ProyectoListView(ListView):
+#    model = Proyecto
+#    queryset = Proyecto.objects.order_by('fecha_inicio')
+#    template_name = "proyecto_list.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(ProyectoListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Proyectos'
-        return context
+#    def get_context_data(self, **kwargs):
+#         context = super(ProyectoListView, self).get_context_data(**kwargs)
+#        context['titulo_pagina'] = 'Listado de Proyectos'
+#        return context
+
+def ProyectoListView(request):
+    busqueda = request.GET.get("buscar")
+    select = request.GET.get("select")
+    proyecto = Proyecto.objects.all()
+    
+    if select == 'nombre':
+            if busqueda: 
+                proyecto = Proyecto.objects.filter(
+                Q(nombre__icontains = busqueda) 
+                ).distinct()
+    elif select == 'presupuesto':  
+            if busqueda: 
+                proyecto = Proyecto.objects.filter(
+                Q(presupuesto__icontains = busqueda) 
+                ).distinct()
+    elif select == 'descripcion':  
+            if busqueda: 
+                proyecto = Proyecto.objects.filter(
+                Q(descripcion__icontains = busqueda) 
+                ).distinct()    
+    elif select == 'fecha_inicio':  
+            if busqueda: 
+                proyecto = Proyecto.objects.filter(
+                Q(fecha_inicio__icontains = busqueda) 
+                ).distinct() 
+    elif select == 'fecha_fin':  
+            if busqueda: 
+                proyecto = Proyecto.objects.filter(
+                Q(fecha_fin__icontains = busqueda) 
+                ).distinct() 
+                                           
+    
+    return render(request, 'proyecto_list.html', {'proyecto_list': proyecto})   
 
 # Clase creada para visualizar los empleados ordenados por dni.
-class EmpleadoListView(ListView):
-    model = Empleado
-    queryset = Empleado.objects.order_by('dni')
-    template_name = "empleado_list.html"
+#class EmpleadoListView(ListView):
+#    model = Empleado
+#    queryset = Empleado.objects.order_by('dni')
+#    template_name = "empleado_list.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(EmpleadoListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Empleados'
-        return context
+#    def get_context_data(self, **kwargs):
+#        context = super(EmpleadoListView, self).get_context_data(**kwargs)
+#        context['titulo_pagina'] = 'Listado de Empleados'
+#        return context
+
+
+def EmpleadoListView(request):
+    busqueda = request.GET.get("buscar")
+    select = request.GET.get("select")
+    empleado = Empleado.objects.all()
+    
+    if select == 'nombre':
+            if busqueda: 
+                empleado = Empleado.objects.filter(
+                Q(nombre__icontains = busqueda) 
+                ).distinct()
+    elif select == 'dni':  
+            if busqueda: 
+                empleado = Empleado.objects.filter(
+                Q(dni__icontains = busqueda) 
+                ).distinct()
+    elif select == 'apellidos':  
+            if busqueda: 
+                empleado = Empleado.objects.filter(
+                Q(apellidos__icontains = busqueda) 
+                ).distinct()    
+    elif select == 'email':  
+            if busqueda: 
+                empleado = Empleado.objects.filter(
+                Q(email__icontains = busqueda) 
+                ).distinct() 
+    elif select == 'telefono':  
+            if busqueda: 
+                empleado = Empleado.objects.filter(
+                Q(telefono__icontains = busqueda) 
+                ).distinct() 
+                                           
+    
+    return render(request, 'empleado_list.html', {'empleado_list': empleado})  
 
 # Clase creada para visualizar los clientes ordenados por nombre.
-class ClienteListView(ListView):
-    model = Cliente
-    queryset = Cliente.objects.order_by('nombre')
-    template_name = "cliente_list.html"
+#class ClienteListView(ListView):
+#    model = Cliente
+#    queryset = Cliente.objects.order_by('nombre')
+#    template_name = "cliente_list.html"
 
-    def get_context_data(self, **kwargs):
-        context = super(ClienteListView, self).get_context_data(**kwargs)
-        context['titulo_pagina'] = 'Listado de Clientes'
-        return context
+#    def get_context_data(self, **kwargs):
+#        context = super(ClienteListView, self).get_context_data(**kwargs)
+#        context['titulo_pagina'] = 'Listado de Clientes'
+#        return context
 
+
+def ClienteListView(request):
+    busqueda = request.GET.get("buscar")
+    select = request.GET.get("select")
+    cliente = Cliente.objects.all()
+    
+    if select == 'nombre':
+            if busqueda: 
+                cliente = Cliente.objects.filter(
+                Q(nombre__icontains = busqueda) 
+                ).distinct()
+    elif select == 'email':  
+            if busqueda: 
+                cliente = Cliente.objects.filter(
+                Q(email__icontains = busqueda) 
+                ).distinct() 
+    elif select == 'telefono':  
+            if busqueda: 
+                cliente = Cliente.objects.filter(
+                Q(telefono__icontains = busqueda) 
+                ).distinct() 
+
+    return render(request, 'cliente_list.html', {'cliente_list': cliente})                                     
 
 # Clase creada para visualizar la informacion de la tarea.
 class TareaDetailView(DetailView):

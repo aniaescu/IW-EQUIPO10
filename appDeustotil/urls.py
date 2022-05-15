@@ -1,14 +1,20 @@
 from unicodedata import name
 from django.urls import path
 from . import views
+from .views import ProyectoListView, TareaListView, EmpleadoListView, ClienteListView
+
 
 # URL para poder visulizar las paginas con sus respectivas vistas
 urlpatterns = [
     path('', views.index, name='pagPrincipal'),
-    path('proyectos/', views.ProyectoListView.as_view(), name='proyecto_list'),
-    path('tareas/', views.TareaListView.as_view(), name='tarea_list'),
-    path('empleados/', views.EmpleadoListView.as_view(), name='empleado_list'),
-    path('clientes/', views.ClienteListView.as_view(), name='cliente_list'),
+#    path('proyectos/', views.ProyectoListView.as_view(), name='proyecto_list'),
+    path('proyectos/',ProyectoListView, name='proyecto_list'),
+#    path('tareas/', views.TareaListView.as_view(), name='tarea_list'),
+    path('tareas/',TareaListView, name='tarea_list'),
+#    path('empleados/', views.EmpleadoListView.as_view(), name='empleado_list'),
+    path('empleados/',EmpleadoListView, name='empleado_list'),
+#    path('clientes/', views.ClienteListView.as_view(), name='cliente_list'),
+    path('clientes/',ClienteListView, name='cliente_list'),
     path('tareas/<int:pk>/', views.TareaDetailView.as_view(), name='tarea'),
     path('proyectos/<int:pk>/', views.ProyectoDetailView.as_view(), name='proyecto'),
     path('empleados/<int:pk>/', views.EmpleadoDetailView.as_view(), name='empleado'),  

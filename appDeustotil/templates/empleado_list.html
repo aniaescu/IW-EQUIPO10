@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
 
+{% block buscador %}
+<form class="buscador" method="get">
+    <div class="input-group">
+        <input type="text" class="texto" placeholder="Buscar.." name="buscar" value="">
+        <div class="input">
+            <button class="boton" type="submit">
+                <i class="cursiva"></i>
+            </button>
+        </div>
+        <select name="select">
+            <option selected value=null>---</option>
+            <option value="dni">DNI</option>
+            <option value="nombre" >Nombre</option>
+            <option value="apellidos">Apellidos</option>
+            <option value="email">Email</option>
+            <option value="telefono">Telefono</option>
+          </select>    
+    </div>
+</form>
+{% endblock %}
+
 {% block contenido %}
 <!--Titulo y botón de crear nuevo elemento-->
 <article id="zonaSupList">

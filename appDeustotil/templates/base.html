@@ -18,8 +18,9 @@
                 <a href="{% url 'cliente_list' %}" class="elementoIndicePrincipal">Clientes</a>
             </section>
         </header>
-
+        
         <main id="content">
+            {% block buscador %}{% endblock %}
             {% block contenido %}{% endblock %}
         </main>
 
