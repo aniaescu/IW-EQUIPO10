@@ -1,7 +1,7 @@
 
 from django.shortcuts import  render, redirect, get_object_or_404
-from appDeustotil.models import Proyecto, Tarea, Empleado, Cliente
-from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm
+from appDeustotil.models import Proyecto, Tarea, Empleado, Cliente, Contacto
+from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, ContactoForm
 from django.views import View
 from django.views.generic import ListView, DetailView
 from django.db.models import Q, Case, When
@@ -22,50 +22,48 @@ def index(request):
 #        return context
 
 
-
 def TareaListView(request):
     busqueda = request.GET.get("buscar")
     select = request.GET.get("select")
     tarea = Tarea.objects.all()
-    
+
     if select == 'nombre':
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(nombre__icontains = busqueda) 
-                ).distinct()
-    elif select == 'prioridad':  
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(prioridad__icontains = busqueda) 
-                ).distinct()
-    elif select == 'descripcion':  
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(descripcion__icontains = busqueda) 
-                ).distinct()    
-    elif select == 'fecha_inicio':  
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(fecha_inicio__icontains = busqueda) 
-                ).distinct() 
-    elif select == 'fecha_fin':  
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(fecha_fin__icontains = busqueda) 
-                ).distinct() 
-    elif select == 'estado':  
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(estado__icontains = busqueda) 
-                ).distinct()   
-    elif select == 'notas':  
-            if busqueda: 
-                tarea = Tarea.objects.filter(
-                Q(notas__icontains = busqueda) 
-                ).distinct()                       
-                                           
-    
-    return render(request, 'tarea_list.html', {'tarea_list': tarea})          
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(nombre__icontains=busqueda)
+            ).distinct()
+    elif select == 'prioridad':
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(prioridad__icontains=busqueda)
+            ).distinct()
+    elif select == 'descripcion':
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(descripcion__icontains=busqueda)
+            ).distinct()
+    elif select == 'fecha_inicio':
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(fecha_inicio__icontains=busqueda)
+            ).distinct()
+    elif select == 'fecha_fin':
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(fecha_fin__icontains=busqueda)
+            ).distinct()
+    elif select == 'estado':
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(estado__icontains=busqueda)
+            ).distinct()
+    elif select == 'notas':
+        if busqueda:
+            tarea = Tarea.objects.filter(
+                Q(notas__icontains=busqueda)
+            ).distinct()
+
+    return render(request, 'tarea_list.html', {'tarea_list': tarea})
 
 # Clase creada para visualizar los proyectos ordenados por fecha inicio.
 #class ProyectoListView(ListView):
@@ -442,3 +440,10 @@ class ClienteModificar(View):
             return redirect('cliente_list')
         # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
         return render(request, 'cliente_modificar.html', {'form': form})  
+
+def ContactoView(request):
+    busqueda = request.GET.get("buscar")
+    select = request.GET.get("select")
+    contacto = Contacto.objects.all()
+    
+    return render(request, 'contacto.html', {'contacto': contacto})  
