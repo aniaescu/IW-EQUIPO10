@@ -1,29 +1,27 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-<div id="after_submit"></div>
-<form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
-    <div class="row">
-        <label class="required" for="name">Nombre:</label><br />
-        <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
-        <span id="name_validation" class="error_message"></span>
-    </div>
-    <div class="row">
-        <label class="required" for="surname">Apellidos:</label><br />
-        <input id="name" class="input" name="name" type="text" value="" size="30" /><br />
-        <span id="name_validation" class="error_message"></span>
-    </div>
-    <div class="row">
-        <label class="required" for="email">Correo electrónico:</label><br />
-        <input id="email" class="input" name="email" type="text" value="" size="30" /><br />
-        <span id="email_validation" class="error_message"></span>
-    </div>
-    <div class="row">
-        <label class="required" for="message">Mensaje:</label><br />
-        <textarea id="message" class="input" name="message" rows="7" cols="30"></textarea><br />
-        <span id="message_validation" class="error_message"></span>
-    </div>
 
-    <input id="submit_button" type="submit" value="Send email" />
-</form>
+    <form method="post">
+        <div>
+            <label for="nombre">Nombre:</label>
+            <br>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            <label for="apellidos">Apellidos:</label>
+            <br>
+            <input type="text" name="apellido" id="apellido">
+        </div>
+        <div>
+            <label for="email">Correo electrónico:</label>
+            <br>
+            <input type="email" name="emails" placeholder="diegohernandez@gmail.com">
+        </div>
+        <div>
+            <textarea name="Descripción" rows="10" cols="50" placeholder="Descripción"></textarea>
+        </div>
+        <input type="submit" id="botonFormulario" value="Enviar mensaje">
+    </form>
+
 {% endblock %}
