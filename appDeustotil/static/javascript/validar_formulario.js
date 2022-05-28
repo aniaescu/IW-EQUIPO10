@@ -10,7 +10,7 @@ function addItemtel(event) {
             return
         }
         if(longitud == 9){
-            principal.textContent = " ";
+            principal.textContent = "";
             return
         }
 
@@ -29,7 +29,7 @@ function addItem(event) {
             parrafo.textContent = "No se pueden escribir ni numeros ni puntuacion especila($,%,&,#)";
             return
         }else{
-            parrafo.textContent = " ";
+            parrafo.textContent = "";
             return
         }
        
@@ -40,9 +40,8 @@ function addItem(event) {
     event.preventDefault();
     let principal = document.getElementById("parrafoerrortelefono");
     let parrafo = document.getElementById("parrafoerrornombre");
-    let parrafo1 = document.getElementById("parrafoerroremail");
-        if(principal.textContent != "" || parrafo.textContent != "" || parrafo1.textContent != "" ){
-
+        if(principal.textContent != "" || parrafo.textContent != ""  ){
+            console.log("hola")
             return;
         }
     this.submit();
