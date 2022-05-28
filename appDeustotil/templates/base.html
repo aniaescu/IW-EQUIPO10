@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block titulo %}Deustotil Tech S.L.{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
     </head>
     <body>
         <header>
@@ -24,6 +24,7 @@
         <main id="content">
             {% block buscador %}{% endblock %}
             {% block contenido %}{% endblock %}
+            <script src = "{% static 'javascript/validar_formulario.js' %}"></script>
         </main>
 
     </body>

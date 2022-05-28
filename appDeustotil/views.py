@@ -310,7 +310,14 @@ class CreateClienteView(View):
     def post(self, request, *args, **kwargs):
         form = ClienteForm(request.POST)
         if form.is_valid():
-            form.save() 
+            cliente = Cliente()
+
+            cliente.nombre = form.cleaned_data['nombre']
+            cliente.email = form.cleaned_data['email']
+            cliente.telefono = form.cleaned_data['telefono']
+
+            cliente.save()
+            #form.save() 
             # Volvemos a la lista de clientes
             return redirect('cliente_list')
         # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores

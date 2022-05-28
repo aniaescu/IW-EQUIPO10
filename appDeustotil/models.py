@@ -31,8 +31,8 @@ class Proyecto(models.Model):
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField()
     presupuesto = models.IntegerField()
-    cliente = models.ForeignKey(Cliente, on_delete=models.CASCADE)
-    reponsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    cliente = models.ForeignKey(Cliente, on_delete=models.SET_NULL, null='true')
+    reponsable = models.ForeignKey(Empleado, on_delete=models.SET_NULL, null='true')
     
     def __str__(self):
         return self.nombre
@@ -48,7 +48,7 @@ class Tarea(models.Model):
     descripcion = models.CharField(max_length=120)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField(null=True, blank=True)
-    responsable = models.ForeignKey(Empleado, on_delete=models.CASCADE)
+    responsable = models.ForeignKey(Empleado, on_delete=models.SET_NULL, null='true')
     prioridad = models.CharField(max_length=10, choices= prioridad_choices , default=('Media'))
     estado = models.CharField(max_length=16, choices= estado_choices, default=('Abierta'))
     notas = models.TextField(null=True, blank=True)

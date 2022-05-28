@@ -1,23 +1,38 @@
 {% extends 'base.html' %}
 
 {% block contenido %}
-<!--Parte superior de la lista donde encontramos el titulo y los botones-->
-<article id="zonaSupList">
-    <section class="elementoZonaSupList">
-    </section>
-    <section class="elementoZonaSupList">
-        <h2> Nuevo cliente</h2>
-    </section>
-    <section class="elementoZonaSupList" id="botonCrear">
-        <a href="{% url 'cliente_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de clientes-->
-    </section>
-</article>
+    <!--Parte superior de la lista donde encontramos el titulo y los botones-->
+    <article id="zonaSupList">
+        <section class="elementoZonaSupList">
+        </section>
+        <section class="elementoZonaSupList">
+            <h2> Nuevo cliente</h2>
+        </section>
+        <section class="elementoZonaSupList" id="botonCrear">
+            <a href="{% url 'cliente_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de clientes-->
+        </section>
+    </article>
 
-<!--Formulario para crear cliente-->
-<form action="{% url 'cliente_create' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_ul }}
-    <input id="botonFormulario" type="submit" value="Añadir cliente" />
-</form>
-
+    <!--Formulario para crear cliente-->
+    <form action="{% url 'cliente_create' %}" method="post" id='formulario'>
+        {% csrf_token %}
+        <div class="mensajerror">
+            <label  for="id_nombre">Nombre:</label><br />
+            <input id="id_nombre" name = "nombre" type="text"  maxlength="60" required /><br />
+            <p id="parrafoerrornombre"></p>
+        </div>
+        <div class="mensajerror">
+            <label  for="id_email">Email:</label><br />
+            <input id="id_email" name = "email" type="email"  maxlength="254" required /><br />
+        </div>
+        <div class="mensajerror">
+            <label  for="id_telefono">Telefono:</label><br />
+            <input id="id_telefono" name = "telefono" type="number" required /><br />
+            <p id="parrafoerrortelefono"> 1 </p>
+        </div>
+        
+<!--{{ form.as_ul }}-->
+        
+      <input id="botonFormulario" type='submit' value="Añadir cliente"/>
+    </form>
 {% endblock %}
