@@ -1,3 +1,4 @@
+from email.policy import default
 from django import forms
 from .models import Proyecto, Tarea, Empleado, Cliente, Contacto
 
@@ -31,3 +32,9 @@ class ContactoForm(forms.ModelForm):
     class Meta:
         model = Contacto
         fields = '__all__'
+
+# Form login
+class LoginForm(forms.Form):
+    nombre = forms.CharField(label='Introduce tu nombre', max_length=100)
+    contraseña = forms.CharField(label='Introduce tu contraseña', max_length=7)
+

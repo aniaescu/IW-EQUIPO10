@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body id="id_login">
+    
+    <form action="{% url 'login' %}" method="post" id="id_login_form">
+        <h1 id="inicia_sesion">Iniciar sesión</h1>
+
+        {% csrf_token %}
+        {{form}}
+
+        <input type="submit" value="Iniciar sesión" id = 'botonLogin' onclick="limpiarFormulario()" />
+           
+    </form>
+</body>
+</html>

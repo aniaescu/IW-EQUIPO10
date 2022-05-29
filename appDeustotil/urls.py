@@ -6,7 +6,9 @@ from .views import ProyectoListView, TareaListView, EmpleadoListView, ClienteLis
 
 # URL para poder visulizar las paginas con sus respectivas vistas
 urlpatterns = [
-    path('', views.index, name='pagPrincipal'),
+    path('', views.loginform, name='loginForm'),
+    path('login/', views.login, name='login'),
+    path('pagPrincipal/', views.index, name='pagPrincipal'),
 #    path('proyectos/', views.ProyectoListView.as_view(), name='proyecto_list'),
     path('proyectos/',ProyectoListView, name='proyecto_list'),
 #    path('tareas/', views.TareaListView.as_view(), name='tarea_list'),

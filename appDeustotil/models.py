@@ -18,6 +18,7 @@ class Empleado(models.Model):
     apellidos = models.CharField(max_length=120)
     email = models.EmailField()
     telefono = models.IntegerField()
+    contraseña = models.CharField(max_length=20, default= "null")
 
     def __str__(self):
         return self.dni

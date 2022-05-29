@@ -1,7 +1,7 @@
 
 from django.shortcuts import  render, redirect, get_object_or_404
 from appDeustotil.models import Proyecto, Tarea, Empleado, Cliente, Contacto
-from .forms import ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, ContactoForm
+from .forms import LoginForm, ProyectoForm, TareaForm, EmpleadoForm, ClienteForm, ContactoForm
 from django.views import View
 from django.views.generic import ListView, DetailView
 from django.db.models import Q, Case, When
@@ -289,7 +289,14 @@ class CreateEmpleadoView(View):
     def post(self, request, *args, **kwargs):
         form = EmpleadoForm(request.POST)
         if form.is_valid(): 
-            form.save() 
+            empleado = Empleado()
+            empleado.dni = form.cleaned_data['dni']
+            empleado.nombre = form.cleaned_data['nombre']
+            empleado.apellidos = form.cleaned_data['apellidos']
+            empleado.email = form.cleaned_data['email']
+            empleado.telefono = form.cleaned_data['telefono']
+            empleado.contraseña = form.cleaned_data['contraseña']
+            empleado.save() 
             # Volvemos a la lista de empleados
             return redirect('empleado_list')
         # Si los datos no son válidos, mostramos el formulario nuevamente indicando los errores
@@ -454,3 +461,33 @@ def ContactoView(request):
     contacto = Contacto.objects.all()
     
     return render(request, 'contacto.html', {'contacto': contacto})  
+
+# Llamada para mostrar el formulario de login.
+def loginform(request):
+ form = LoginForm()
+ return render(request, 'login.html', {'form':form})
+
+# Función para autenticar empleados (usuarios)
+def login(request):
+    form = LoginForm(request.POST)
+    if form.is_valid():
+        nombre = form.cleaned_data['nombre']
+        contraseña = form.cleaned_data['contraseña']
+            
+        usuarios = Empleado.objects.order_by('nombre')
+        valido = False
+        
+        # Comparación de nombre y contraseña insertadas por el usuario con los empleados almacenados en la base de datos
+        for u in usuarios:
+            if u.nombre == nombre and u.contraseña == contraseña:
+                valido = True
+
+        if valido == True:
+            # Redirigimos al usuario hacia la página principal de la página web
+            return redirect('pagPrincipal')
+        else:
+            # Si el usuario o la contraseña no son los correctos, volvemos a mostrar el formulario de login
+            return render(request, 'login.html', {'form': form})
+    else:
+        # Si el usuario o la contraseña no son los correctos, volvemos a mostrar el formulario de login
+        return render(request, 'login.html', {'form': form})
