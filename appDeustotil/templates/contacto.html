@@ -6,21 +6,21 @@
     <h2>Contacto</h2>
 </section>
 
-<form action="/appDeustotil/contacto/" method="post">{% csrf_token %}
-    <div>
+<form action="/appDeustotil/contacto/" method="post" class="formulario">
+    {% csrf_token %}
+    <div class="mensajerrorcliente">
         <label for="asunto">Asunto:</label>
-        <br>
         <input type="text" name="asunto">
     </div>
-    <div>
+    <div class="mensajerrorcliente">
         <label for="email">Correo electrónico:</label>
-        <br>
         <input type="text" name="email" placeholder="diegohernandez@gmail.com">
     </div>
-    <div>
-        <textarea name="mensaje" rows="10" cols="50" placeholder="Mensaje"></textarea>
+    <div class="mensajerrorcliente">
+        <label for="mensaje">Mensaje:</label>
+        <textarea name="mensaje" rows="10" cols="30" placeholder="Mensaje"></textarea>
     </div>
-    <input type="submit" id="botonFormulario" value="Enviar mensaje">
+    <input type="submit" id="botonContacto" value="Enviar mensaje">
 </form>
 
 {% endblock %}

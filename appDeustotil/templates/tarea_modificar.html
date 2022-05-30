@@ -15,7 +15,7 @@
 </article>
 
 <!--Formulario para modificar la tarea-->
-<form action="" method="post">
+<form action="" method="post" class="formulario">
     {% csrf_token %}
     {{ form.as_ul }}
     <input id="botonFormulario" type="submit" value="Actualizar">

@@ -14,19 +14,15 @@ function addItemtel(event) {
             return
         }
 
-
-    
-    telefono.value = "";
   }
 
 function addItem(event) {
-    let nombre = document.getElementById("id_nombre");
+    let nombre = document.getElementById("nombre");
     let valor = event.currentTarget.value
     let parrafo = document.getElementById("parrafoerrornombre");
     
         if(valor.includes('$') || valor.includes('%')|| valor.includes('&') || valor.includes('#') || valor.includes('1') || valor.includes('3') || valor.includes('2') || valor.includes('4') || valor.includes('5') || valor.includes('6') || valor.includes('7') || valor.includes('8') || valor.includes('9')|| valor.includes('0') ){
-            console.log('hola')
-            parrafo.textContent = "No se pueden escribir ni numeros ni puntuacion especila($,%,&,#)";
+            parrafo.textContent = "No se pueden escribir ni numeros ni puntuacion especial($,%,&,#)";
             return
         }else{
             parrafo.textContent = "";
@@ -41,7 +37,6 @@ function addItem(event) {
     let principal = document.getElementById("parrafoerrortelefono");
     let parrafo = document.getElementById("parrafoerrornombre");
         if(principal.textContent != "" || parrafo.textContent != ""  ){
-            console.log("hola")
             return;
         }
     this.submit();
@@ -50,10 +45,9 @@ function addItem(event) {
   /* AÑADIR CONTROLADORES */
   let tel = document.getElementById("id_telefono");
   tel.addEventListener("keyup", addItemtel)  
-  let nom = document.getElementById("id_nombre");
+  let nom = document.getElementById("nombre");
   nom.addEventListener("keyup", addItem);
-//  tel.addEventListener("keyup", userWarning);
 
-  let boton = document.getElementById("formulario");
+  let boton = document.getElementById("botonFormulario");
   boton.addEventListener("submit", error)
 

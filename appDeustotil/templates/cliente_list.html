@@ -4,17 +4,17 @@
 <form class="buscador" method="get">
     <div class="input-group">
         <input type="text" class="texto" placeholder="Buscar.." name="buscar" value="">
-        <div class="input">
-            <button class="boton" type="submit">
-                <i class="cursiva"></i>
-            </button>
-        </div>
-        <select name="select">
+        <select name="select" class="select">
             <option selected value=null>---</option>
             <option value="nombre">Nombre</option>
             <option value="email" >Email</option>
             <option value="telefono">Telefono</option>
-          </select>    
+        </select>
+        <div class="input">
+            <button class="boton" type="submit">
+                <i class="cursiva">Buscar</i>
+            </button>
+        </div>       
     </div>
 </form>
 {% endblock %}

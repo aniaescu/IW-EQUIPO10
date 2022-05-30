@@ -14,18 +14,18 @@
     </article>
 
     <!--Formulario para crear cliente-->
-    <form action="{% url 'cliente_create' %}" method="post" id='formulario'>
+    <form action="{% url 'cliente_create' %}" method="post" class='formulario'>
         {% csrf_token %}
-        <div class="mensajerror">
-            <label  for="id_nombre">Nombre:</label><br />
-            <input id="id_nombre" name = "nombre" type="text"  maxlength="60" required /><br />
+        <div class="mensajerrorcliente">
+            <label  for="nombre">Nombre:</label><br />
+            <input id="nombre" name = "nombre" type="text"  maxlength="60" required /><br />
             <p id="parrafoerrornombre"></p>
         </div>
-        <div class="mensajerror">
+        <div class="mensajerrorcliente">
             <label  for="id_email">Email:</label><br />
             <input id="id_email" name = "email" type="email"  maxlength="254" required /><br />
         </div>
-        <div class="mensajerror">
+        <div class="mensajerrorcliente">
             <label  for="id_telefono">Telefono:</label><br />
             <input id="id_telefono" name = "telefono" type="number" required /><br />
             <p id="parrafoerrortelefono"></p>

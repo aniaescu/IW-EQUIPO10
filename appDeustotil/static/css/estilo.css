@@ -171,15 +171,18 @@ table{
 
 /*FORMULARIOS */   
 
-form{
+/*FORMULARIOS */   
+
+.formulario{
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
+/*
 label{
     margin-top:10px;
     margin-bottom: 10px;
@@ -189,7 +192,6 @@ label{
 input{
     margin-top: 10px;
     margin-bottom: 15px;
-    width: 12vW;
 }
 
 select{
@@ -202,7 +204,7 @@ textarea{
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+*/
 #botonFormulario{
     border: solid black 1px;
     padding: 5px;
@@ -212,8 +214,82 @@ textarea{
     color: gainsboro;
 }
 
-.mensajerror{
+#botonContacto{
+    border: solid black 1px;
+    padding: 5px;
+    margin-top: 150px;
+    margin-left: 20px;
+    background-color: black;
+    color: gainsboro;
+}
+
+.mensajerrorcliente{
     display: flex;
+    height: 46px;
+    align-items: baseline;
+    padding-top: 30px;
+}
+
+
+.input-group{
+    display: flex;
+    align-items: flex-start;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.boton{
+    padding-left: 50px;
+}
+
+.select{
+    margin-right: 20px;
+    padding-bottom: 2px;
+}
+
+.texto{
+    margin-right: 20px;
+}
+
+#id_nombrec{
+    height: 20px;
+    margin-left: 12px;
+}
+
+#id_email{
+    height: 20px;
+    margin-left: 28px;
+    margin-bottom: 20px;
+}
+
+#id_telefono{
+    height: 20px;
+    margin-left: 9px;
+}
+
+#dni, #nombre, #apellidos, #email, #telefono, #contraseña{
+    height: 20px;
+    margin-top: 15px;
+}
+
+#dni{
+    margin-left: 42px;
+}
+#nombre{
+    margin-left: 17px;
+}
+#apellidos{
+    margin-left: 10px;
+}
+#email{
+    margin-left: 30px;
+}
+#telefono{
+    margin-left: 15px;
+}
+#contraseña{
+    margin-left: 5px;
 }
 
 /* FORMULARIO LOGIN */

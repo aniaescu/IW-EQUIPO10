@@ -14,8 +14,44 @@
 </article>
 
 <!--Formulario para crear proyecto-->
-<form action="{% url 'proyecto_create' %}" method="post">
+<form action="{% url 'proyecto_create' %}" method="post" class="formulario">
     {% csrf_token %}
+    <!--  <div class="mensajerrorproyecto">
+        <label  for="id_nombre">Nombre:</label>
+        <input id="id_nombre" name = "nombre" type="text"  maxlength="60" required />
+        <p id="parrafoerrornombre"></p>
+    </div>
+    <div class="mensajerrorproyecto">
+        <label  for="id_descripcion">Descripcion:</label>
+        <textarea id="id_descripcion" name = "descripcion"   maxlength="120" required ></textarea>
+        <p id="parrafoerrordescripcion"></p>
+    </div>
+    <div class="mensajerrorproyecto">
+        <label  for="id_fecha_inicio">Fecha inicio:</label>
+        <input id="id_fecha_inicio" name = "fecha_inicio"  required />
+        <p id="parrafofechainicio"></p>
+    </div>
+    <div class="mensajerrorproyecto">
+        <label  for="id_fecha_fin">Fecha fin:</label>
+        <input id="id_fecha_fin" name = "fecha_fin" required />
+        <p id="parrafoerrorfechafin"></p>
+    </div>
+    <div class="mensajerrorproyecto">
+        <label  for="id_presupuesto">Presupuesto:</label>
+        <input id="id_presupuesto" name = "presupuesto" type="number" required />
+        <p id="parrafoerrorpresupuesto"></p>
+    </div>
+    <div class="mensajerrorproyecto">
+        <label  for="id_fecha_fin">Cliente:</label>
+        <select name="cliente" required id="id_cliente">
+            <option value selected>-------</option>
+            {% for i in proyecto_list.cliente %}
+                <option value="{{i.value}}">{{i.nombre}}</option>
+            {% endfor %}
+        </select>
+        <p id="parrafoerrorfechafin"></p>
+    </div>
+    -->  
     {{ form.as_ul }}
     <input id="botonFormulario" type="submit" value="Añadir proyecto" />
 </form>
