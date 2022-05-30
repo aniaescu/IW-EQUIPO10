@@ -189,6 +189,7 @@ label{
 input{
     margin-top: 10px;
     margin-bottom: 15px;
+    width: 12vW;
 }
 
 select{

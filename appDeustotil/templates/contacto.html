@@ -2,26 +2,25 @@
 
 {% block contenido %}
 
-    <form method="post">
-        <div>
-            <label for="nombre">Nombre:</label>
-            <br>
-            <input type="text" name="nombre" id="nombre">
-        </div>
-        <div>
-            <label for="apellidos">Apellidos:</label>
-            <br>
-            <input type="text" name="apellido" id="apellido">
-        </div>
-        <div>
-            <label for="email">Correo electrónico:</label>
-            <br>
-            <input type="email" name="emails" placeholder="diegohernandez@gmail.com">
-        </div>
-        <div>
-            <textarea name="Descripción" rows="10" cols="50" placeholder="Descripción"></textarea>
-        </div>
-        <input type="submit" id="botonFormulario" value="Enviar mensaje">
-    </form>
+<section class="elementoZonaSupList">
+    <h2>Contacto</h2>
+</section>
+
+<form action="/appDeustotil/contacto/" method="post">{% csrf_token %}
+    <div>
+        <label for="asunto">Asunto:</label>
+        <br>
+        <input type="text" name="asunto">
+    </div>
+    <div>
+        <label for="email">Correo electrónico:</label>
+        <br>
+        <input type="text" name="email" placeholder="diegohernandez@gmail.com">
+    </div>
+    <div>
+        <textarea name="mensaje" rows="10" cols="50" placeholder="Mensaje"></textarea>
+    </div>
+    <input type="submit" id="botonFormulario" value="Enviar mensaje">
+</form>
 
 {% endblock %}

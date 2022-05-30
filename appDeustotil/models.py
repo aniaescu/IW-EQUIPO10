@@ -61,13 +61,12 @@ class Tarea(models.Model):
 
 # Clase Contacto
 class Contacto(models.Model):
-    nombre = models.CharField(max_length=60)
-    apellidos = models.CharField(max_length=120)
+    asunto = models.CharField(max_length=60)
     email = models.EmailField()
     mensaje = models.CharField(max_length=500)
     
     def __str__(self):
-        return self.nombre
+        return self.email
 
 
 
