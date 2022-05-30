@@ -1,98 +1,98 @@
 /* BASE.HTML */
 
-body{
+body {
     background-color: gainsboro;
     margin: 0;
     height: 100%;
 }
 
-    /* Header */
+/* Header */
 
-    header{
-        text-align: center;
-        background-color: black;
-        color: gainsboro;
-        padding: 5px 0 20px 0;
-    }
+header {
+    text-align: center;
+    background-color: black;
+    color: gainsboro;
+    padding: 5px 0 20px 0;
+}
 
-    h1{
-        border-bottom: solid 1px gainsboro;
-        padding-bottom: 10px;
-        font-size: 40px;
-    }
+h1 {
+    border-bottom: solid 1px gainsboro;
+    padding-bottom: 10px;
+    font-size: 40px;
+}
 
-    #indicePrincipal{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        margin-left: 660px;
-    }
-    
-        .elementoIndicePrincipal{
-            color: gainsboro;
-        }
-    
-    /* Main */
+#indicePrincipal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-left: 660px;
+}
 
-    main{
-        margin: 0;
-        height: 100px;
-    }
+.elementoIndicePrincipal {
+    color: gainsboro;
+}
+
+/* Main */
+
+main {
+    margin: 0;
+    height: 100px;
+}
 
 /* Elementos generales */
 
-h2{
+h2 {
     margin: 0;
     font-size: 35px;
 }
 
-p{
+p {
     margin: 30px;
     text-align: center;
 }
 
-a{
-    
+a {
+
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
 
 /* PAGINA PRINCIPAL */
 
-#divPagPrincipal{
+#divPagPrincipal {
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-    .divPP{
-        border-right: solid 2px black;
-        width:fit-content;
-        flex-basis: 50%;
-        display: flex;
-        justify-content: space-evenly;
-        height: 334px;
-        align-items: center;
-        flex-direction: column;
-        padding: 80px 0 80px 0;
-    }
+.divPP {
+    border-right: solid 2px black;
+    width: fit-content;
+    flex-basis: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    height: 334px;
+    align-items: center;
+    flex-direction: column;
+    padding: 80px 0 80px 0;
+}
 
-        .botonInfo{
-            border: solid black 2px;
-            padding: 10px;
-            background-color: grey;
-            color: black;
-            margin: 0 5px 0 5px;
-        }
+.botonInfo {
+    border: solid black 2px;
+    padding: 10px;
+    background-color: grey;
+    color: black;
+    margin: 0 5px 0 5px;
+}
 
 /* LISTA DE PROYECTOS */
 
-#zonaSupList{
+#zonaSupList {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -100,35 +100,35 @@ a:hover{
     justify-content: space-evenly;
 }
 
-#botonCrear{
+#botonCrear {
     display: flex;
     justify-content: right;
     padding-right: 10px;
 }
 
-.elementoZonaSupList{
+.elementoZonaSupList {
     display: flex;
     justify-content: center;
     flex-basis: 33%;
 }
 
-li{
+li {
     display: flex;
     flex-direction: row;
 }
 
-#nombreProyecto{
+#nombreProyecto {
     font-weight: 600;
     text-decoration: underline;
 }
 
-.elementoListaProyecto{
+.elementoListaProyecto {
     margin: 0 40px 0 40px;
     display: flex;
     align-self: center;
 }
 
-#botonMasInfo{
+#botonMasInfo {
     border: solid black 1px;
     padding: 5px;
     margin: 5px 20px 5px 20px;
@@ -137,13 +137,13 @@ li{
 }
 
 /*LISTA DE TAREAS*/
-#listadoTareas{
+#listadoTareas {
     display: flex;
     margin: 0 10px 0 10px;
     flex-wrap: wrap;
 }
 
-#cuadradoTarea{
+#cuadradoTarea {
     border: solid black 1px;
     height: 50px;
     width: 402px;
@@ -156,24 +156,24 @@ li{
 }
 
 /*LISTA DE EMPLEADOS*/
-.tablaList{
+.tablaList {
     width: 100%;
     text-align: center;
 }
 
-th, td{
+th,
+td {
     padding: 10px;
 }
 
-table{
+table {
     margin: 20px;
 }
 
-/*FORMULARIOS */   
 
-/*FORMULARIOS */   
+/*FORMULARIOS */
 
-.formulario{
+.formulario {
     width: 100%;
     max-width: 600px;
     margin: 20px auto;
@@ -182,6 +182,7 @@ table{
     justify-content: center;
     align-items: flex-start;
 }
+
 /*
 label{
     margin-top:10px;
@@ -205,7 +206,7 @@ textarea{
     margin-bottom: 10px;
 }
 */
-#botonFormulario{
+#botonFormulario {
     border: solid black 1px;
     padding: 5px;
     margin-top: 10px;
@@ -214,7 +215,7 @@ textarea{
     color: gainsboro;
 }
 
-#botonContacto{
+#botonContacto {
     border: solid black 1px;
     padding: 5px;
     margin-top: 150px;
@@ -223,7 +224,7 @@ textarea{
     color: gainsboro;
 }
 
-.mensajerrorcliente{
+.mensajerrorcliente {
     display: flex;
     height: 46px;
     align-items: baseline;
@@ -231,7 +232,7 @@ textarea{
 }
 
 
-.input-group{
+.input-group {
     display: flex;
     align-items: flex-start;
     margin-left: 100px;
@@ -239,79 +240,92 @@ textarea{
     margin-bottom: 10px;
 }
 
-.boton{
+.boton {
     padding-left: 50px;
 }
 
-.select{
+.select {
     margin-right: 20px;
     padding-bottom: 2px;
 }
 
-.texto{
+.texto {
     margin-right: 20px;
 }
 
-#id_nombrec{
+#id_nombrec {
     height: 20px;
     margin-left: 12px;
 }
 
-#id_email{
+#id_email {
     height: 20px;
     margin-left: 28px;
     margin-bottom: 20px;
 }
 
-#id_telefono{
+#id_telefono {
     height: 20px;
     margin-left: 9px;
 }
 
-#dni, #nombre, #apellidos, #email, #telefono, #contraseña{
+#dni,
+#nombre,
+#apellidos,
+#email,
+#telefono,
+#contraseña {
     height: 20px;
     margin-top: 15px;
 }
 
-#dni{
+#dni {
     margin-left: 42px;
 }
-#nombre{
+
+#nombre {
     margin-left: 17px;
 }
-#apellidos{
+
+#apellidos {
     margin-left: 10px;
 }
-#email{
+
+#email {
     margin-left: 30px;
 }
-#telefono{
+
+#telefono {
     margin-left: 15px;
 }
-#contraseña{
+
+#contraseña {
     margin-left: 5px;
 }
 
 /* FORMULARIO LOGIN */
 
-html{
+html {
     height: 100%;
 }
 
-#id_login{
-    background: #c31432;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+#id_login {
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     align-items: center;
 }
 
-#inicia_sesion{
+#inicia_sesion {
     margin-bottom: 20px;
     margin-top: 10px;
 }
 
-#id_login_form{
+#id_login_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -322,21 +336,26 @@ html{
     border-radius: 10px;
 }
 
-#id_nombre, #id_contraseña{
+#id_nombre,
+#id_contraseña {
     border: none;
     padding: 10px;
     margin: 0 0 20px 0;
     border-bottom: solid 1px #49454567;
 }
 
-#id_nombre:focus, #id_contraseña:focus{
+#id_nombre:focus,
+#id_contraseña:focus {
     border-radius: 8px;
 }
 
-#botonLogin{
-    background: #c31432;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+#botonLogin {
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     padding: 20px;
     color: #fff;
     border: none;
@@ -344,4 +363,45 @@ html{
     margin-top: 20px;
     font-size: 16px;
     cursor: pointer;
+}
+
+/*AMPLIAR-DISMINUIR TEXTO*/
+.f0 {
+    font-size: 0.8rem;
+}
+
+.f1 {
+    font-size: 0.9rem;
+}
+
+.f2 {
+    font-size: 1rem;
+}
+
+.f3 {
+    font-size: 1.1rem;
+}
+
+.f4 {
+    font-size: 1.2rem;
+}
+
+.f5 {
+    font-size: 1.3rem;
+}
+
+.f6 {
+    font-size: 1.4rem;
+}
+
+#boton_aumentar_disminuir{
+    justify-content: left;
+}
+
+#aumentar {
+    margin: 10px;
+}
+
+#disminuir {
+    margin: 10px;
 }

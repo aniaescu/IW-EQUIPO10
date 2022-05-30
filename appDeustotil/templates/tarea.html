@@ -2,16 +2,18 @@
 
 {% block titulo %} {{ tarea.nombre }} {% endblock %}
 
-{% block contenido %} 
+{% block contenido %}
 
 <!--Parte superior de la lista donde encontramos el titulo y los botones-->
 <article id="zonaSupList">
-    <section class="elementoZonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
     </section>
     <section class="elementoZonaSupList">
         <h2>{{ tarea.nombre }}</h2>
     </section>
-    <!--Botones para navegar por diferentes paginas-->    
+    <!--Botones para navegar por diferentes paginas-->
     <section class="elementoZonaSupList" id="botonCrear">
         <a href="{% url 'tarea_modificar' tarea.id%}" class="botonInfo">Modificar</a>
         <a href="{% url 'tarea_delete' tarea.id%}" class="botonInfo">Eliminar</a>
@@ -57,7 +59,7 @@
     </tr>
     {% endif %}
 </table>
-   
+
 {% else %}
 <p>No existe este proyecto.</p>
 {% endif %}
