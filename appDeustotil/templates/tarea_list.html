@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
+{% block contenido %}
+<!--Titulo y botón de crear nuevo elemento-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>Tareas</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'tarea_create' %}" class="botonInfo">Añadir</a>
+    </section>
+</article>
+
+<!--Buscador de registros-->
 {% block buscador %}
 <form class="buscador" method="get">
     <div class="input-group">
@@ -23,21 +39,6 @@
     </div>
 </form>
 {% endblock %}
-
-{% block contenido %}
-<!--Titulo y botón de crear nuevo elemento-->
-<article id="zonaSupList">
-    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
-        <button id="aumentar">Aumentar</button>
-        <button id="disminuir">Disminuir</button>
-    </section>
-    <section class="elementoZonaSupList">
-        <h2>Tareas</h2>
-    </section>
-    <section class="elementoZonaSupList" id="botonCrear">
-        <a href="{% url 'tarea_create' %}" class="botonInfo">Añadir</a>
-    </section>
-</article>
 
 <!--Listado tareas-->
 {% if tarea_list %}

@@ -1,5 +1,21 @@
 {% extends 'base.html' %}
 
+{% block contenido %}
+<!--Titulo y botón de crear nuevo elemento-->
+<article id="zonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
+    </section>
+    <section class="elementoZonaSupList">
+        <h2>Proyectos</h2>
+    </section>
+    <section class="elementoZonaSupList" id="botonCrear">
+        <a href="{% url 'proyecto_create' %}" class="botonInfo">Añadir</a>
+    </section>
+</article>
+
+<!--Buscador de registros-->
 {% block buscador %}
 <form class="buscador" method="get">
     <div class="input-group">
@@ -21,27 +37,12 @@
 </form>
 {% endblock %}
 
-{% block contenido %}
-<!--Titulo y botón de crear nuevo elemento-->
-<article id="zonaSupList">
-    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
-        <button id="aumentar">Aumentar</button>
-        <button id="disminuir">Disminuir</button>
-    </section>
-    <section class="elementoZonaSupList">
-        <h2>Proyectos</h2>
-    </section>
-    <section class="elementoZonaSupList" id="botonCrear">
-        <a href="{% url 'proyecto_create' %}" class="botonInfo">Añadir</a>
-    </section>
-</article>
-
 <!--Listado proyectos con informacion adicional-->
 <div>
     {% if proyecto_list %}
     <ul>
         {% for proyecto in proyecto_list %}
-        <li> -
+        <li id="listaProyectos"> 
             <div id="nombreProyecto" class="elementoListaProyecto"> {{ proyecto.nombre }} </div>
             <div class="elementoListaProyecto">Presupuesto: {{ proyecto.presupuesto }}</div>
             <div class="elementoListaProyecto">DNI del responsable: {{ proyecto.reponsable }}</div>
