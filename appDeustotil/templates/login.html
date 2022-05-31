@@ -1,3 +1,4 @@
+<!--pagina de login-->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,6 +7,7 @@
     <title>Login</title>
     <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
 </head>
+<!--formulario de login, para poder introducir los valores del usuario y contraseña-->
 <body id="id_login">
     
     <form action="{% url 'login' %}" method="post" id="id_login_form">

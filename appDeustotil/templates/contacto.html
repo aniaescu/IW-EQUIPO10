@@ -1,19 +1,24 @@
+<!--Vista, donde aparece un formulario desde donde se pueden enviar correos-->
 {% extends 'base.html' %}
 
 {% block contenido %}
+<!--botones de aumentar y disminuir tamaño de letra-->
 <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
     <button id="aumentar">Aumentar</button>
     <button id="disminuir">Disminuir</button>
 </section>
+<!--titulo de la pagina-->
 <section class="elementoZonaSupList">
     <h2>Contacto</h2>
 </section>
 
+
+<!--formulario para enviar correos-->
 <form action="/appDeustotil/contacto/" method="post" class="formulario">
     {% csrf_token %}
     <div class="mensajerrorcliente">
         <label for="asunto">Asunto:</label>
-        <input type="text" name="asunto">
+        <input type="text" name="asunto" required>
     </div>
     <div class="mensajerrorcliente">
         <label for="email">Correo electrónico:</label>
@@ -21,7 +26,7 @@
     </div>
     <div class="mensajerrorcliente">
         <label for="mensaje">Mensaje:</label>
-        <textarea name="mensaje" rows="10" cols="30" placeholder="Mensaje"></textarea>
+        <textarea name="mensaje" rows="10" cols="30" placeholder="Mensaje" required></textarea>
     </div>
     <input type="submit" id="botonContacto" value="Enviar mensaje">
 </form>

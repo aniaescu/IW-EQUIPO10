@@ -15,7 +15,7 @@ from django.conf import settings
 def index(request):
     return render(request, 'pagPrincipal.html')
 
-# Clase creada para visualizar las tareas ordenados por fecha inicio.
+
 # class TareaListView(ListView):
 #    model = Tarea
 #    queryset = Tarea.objects.order_by('fecha_inicio')
@@ -26,7 +26,7 @@ def index(request):
 #        context['titulo_pagina'] = 'Listado de Tareas'
 #        return context
 
-
+# Clase creada para visualizar las tareas ordenados por lo que se le asigne en el buscador
 def TareaListView(request):
     busqueda = request.GET.get("buscar")
     select = request.GET.get("select")
@@ -70,7 +70,7 @@ def TareaListView(request):
 
     return render(request, 'tarea_list.html', {'tarea_list': tarea})
 
-# Clase creada para visualizar los proyectos ordenados por fecha inicio.
+
 # class ProyectoListView(ListView):
 #    model = Proyecto
 #    queryset = Proyecto.objects.order_by('fecha_inicio')
@@ -81,7 +81,7 @@ def TareaListView(request):
 #        context['titulo_pagina'] = 'Listado de Proyectos'
 #        return context
 
-
+# Clase creada para visualizar los proyectos ordenados, por lo que se le asigne en el buscador.
 def ProyectoListView(request):
     busqueda = request.GET.get("buscar")
     select = request.GET.get("select")
@@ -115,7 +115,7 @@ def ProyectoListView(request):
 
     return render(request, 'proyecto_list.html', {'proyecto_list': proyecto})
 
-# Clase creada para visualizar los empleados ordenados por dni.
+
 # class EmpleadoListView(ListView):
 #    model = Empleado
 #    queryset = Empleado.objects.order_by('dni')
@@ -126,7 +126,7 @@ def ProyectoListView(request):
 #        context['titulo_pagina'] = 'Listado de Empleados'
 #        return context
 
-
+# Clase creada para visualizar los empleados ordenados por lo que se le asigne en el buscador.
 def EmpleadoListView(request):
     busqueda = request.GET.get("buscar")
     select = request.GET.get("select")
@@ -160,7 +160,6 @@ def EmpleadoListView(request):
 
     return render(request, 'empleado_list.html', {'empleado_list': empleado})
 
-# Clase creada para visualizar los clientes ordenados por nombre.
 # class ClienteListView(ListView):
 #    model = Cliente
 #    queryset = Cliente.objects.order_by('nombre')
@@ -172,6 +171,7 @@ def EmpleadoListView(request):
 #        return context
 
 
+# Clase creada para visualizar los clientes ordenados por lo que se le asigne en el buscador.
 def ClienteListView(request):
     busqueda = request.GET.get("buscar")
     select = request.GET.get("select")
@@ -521,7 +521,7 @@ def login(request):
         # Si el usuario o la contraseña no son los correctos, volvemos a mostrar el formulario de login
         return render(request, 'login.html', {'form': form})
 
-
+#Definicion apra poder enviar correos
 def ContactoView(request):
 
     if request.method == "POST":

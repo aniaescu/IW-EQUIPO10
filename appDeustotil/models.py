@@ -46,7 +46,7 @@ class Tarea(models.Model):
     estado_choices = (('Abierta', 'Abierta'), ('Asignada', 'Asignada'), ('En proceso', 'En proceso'), ('Finalizada', 'Finalizada'))
 
     nombre = models.CharField(max_length=60)
-    descripcion = models.CharField(max_length=120)
+    descripcion = models.TextField(max_length=120)
     fecha_inicio = models.DateField()
     fecha_fin = models.DateField(null=True, blank=True)
     responsable = models.ForeignKey(Empleado, on_delete=models.SET_NULL, null='true')
