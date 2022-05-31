@@ -53,7 +53,7 @@ class Tarea(models.Model):
     prioridad = models.CharField(max_length=10, choices= prioridad_choices , default=('Media'))
     estado = models.CharField(max_length=16, choices= estado_choices, default=('Abierta'))
     notas = models.TextField(null=True, blank=True)
-    Proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
+    proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.nombre
