@@ -7,19 +7,19 @@
         <select name="select" class="select">
             <option selected value=null>---</option>
             <option value="nombre">Nombre</option>
-            <option value="descripcion" >Descripcion</option>
+            <option value="descripcion">Descripcion</option>
             <option value="fecha_inicio">Fecha inicio</option>
             <option value="fecha_fin">Fecha fin</option>
             <option value="prioridad">Prioridad</option>
             <option value="estado">Estado</option>
             <option value="notas">Notas</option>
-        </select> 
+        </select>
         <div class="input">
             <button class="boton" type="submit">
                 <i class="cursiva">Buscar</i>
             </button>
         </div>
-           
+
     </div>
 </form>
 {% endblock %}
@@ -27,7 +27,9 @@
 {% block contenido %}
 <!--Titulo y botón de crear nuevo elemento-->
 <article id="zonaSupList">
-    <section class="elementoZonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
     </section>
     <section class="elementoZonaSupList">
         <h2>Tareas</h2>
@@ -39,14 +41,15 @@
 
 <!--Listado tareas-->
 {% if tarea_list %}
-    <section id="listadoTareas">
-        {% for tarea in tarea_list %}
-        <div id="cuadradoTarea"> <a href="{% url 'tarea' tarea.id%}" class="elementoIndicePrincipal">{{ tarea.nombre }}</a></div>
-        {% endfor %}  
-    </section>
+<section id="listadoTareas">
+    {% for tarea in tarea_list %}
+    <div id="cuadradoTarea"> <a href="{% url 'tarea' tarea.id%}" class="elementoIndicePrincipal">{{ tarea.nombre }}</a>
+    </div>
+    {% endfor %}
+</section>
 {% else %}
-    <p>No existen tareas</p> 
-{% endif %}  
+<p>No existen tareas</p>
+{% endif %}
 {% endblock %}
 
 <!--

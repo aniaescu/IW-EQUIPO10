@@ -7,7 +7,7 @@
         <select name="select" class="select">
             <option selected value=null>---</option>
             <option value="nombre">Nombre</option>
-            <option value="descripcion" >Descripcion</option>
+            <option value="descripcion">Descripcion</option>
             <option value="fecha_inicio">Fecha inicio</option>
             <option value="fecha_fin">Fecha fin</option>
             <option value="presupuesto">Presupuesto</option>
@@ -16,7 +16,7 @@
             <button class="boton" type="submit">
                 <i class="cursiva">Buscar</i>
             </button>
-        </div>      
+        </div>
     </div>
 </form>
 {% endblock %}
@@ -24,7 +24,9 @@
 {% block contenido %}
 <!--Titulo y botón de crear nuevo elemento-->
 <article id="zonaSupList">
-    <section class="elementoZonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
     </section>
     <section class="elementoZonaSupList">
         <h2>Proyectos</h2>
@@ -37,21 +39,22 @@
 <!--Listado proyectos con informacion adicional-->
 <div>
     {% if proyecto_list %}
-        <ul>
+    <ul>
         {% for proyecto in proyecto_list %}
-            <li> -
-                 <div id="nombreProyecto" class="elementoListaProyecto"> {{ proyecto.nombre }} </div> 
-                 <div class="elementoListaProyecto">Presupuesto: {{ proyecto.presupuesto }}</div> 
-                 <div class="elementoListaProyecto">DNI del responsable: {{ proyecto.reponsable }}</div> 
-                 <div class="elementoListaProyecto">Nombre del cliente: {{ proyecto.cliente }}</div>
-                 <div class="elementoListaProyecto" ><a href="{% url 'proyecto' proyecto.id%}" id="botonMasInfo">Más información</a> </div>
-            </li>
-        {% endfor %} 
-        </ul>
+        <li> -
+            <div id="nombreProyecto" class="elementoListaProyecto"> {{ proyecto.nombre }} </div>
+            <div class="elementoListaProyecto">Presupuesto: {{ proyecto.presupuesto }}</div>
+            <div class="elementoListaProyecto">DNI del responsable: {{ proyecto.reponsable }}</div>
+            <div class="elementoListaProyecto">Nombre del cliente: {{ proyecto.cliente }}</div>
+            <div class="elementoListaProyecto"><a href="{% url 'proyecto' proyecto.id%}" id="botonMasInfo">Más
+                    información</a> </div>
+        </li>
+        {% endfor %}
+    </ul>
 
     {% else %}
-    <p>No hay proyectos en esta base de datos.</p> 
-    {% endif %}  
+    <p>No hay proyectos en esta base de datos.</p>
+    {% endif %}
 
 </div>
 {% endblock %}

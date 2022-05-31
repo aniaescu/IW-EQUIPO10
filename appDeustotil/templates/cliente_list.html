@@ -7,14 +7,14 @@
         <select name="select" class="select">
             <option selected value=null>---</option>
             <option value="nombre">Nombre</option>
-            <option value="email" >Email</option>
+            <option value="email">Email</option>
             <option value="telefono">Telefono</option>
         </select>
         <div class="input">
             <button class="boton" type="submit">
                 <i class="cursiva">Buscar</i>
             </button>
-        </div>       
+        </div>
     </div>
 </form>
 {% endblock %}
@@ -22,7 +22,9 @@
 {% block contenido %}
 <!--Titulo y botón de crear nuevo elemento-->
 <article id="zonaSupList">
-    <section class="elementoZonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
     </section>
     <section class="elementoZonaSupList">
         <h2>Clientes</h2>
@@ -34,26 +36,26 @@
 
 <!--Listado clientes con informacion adicional-->
 {% if cliente_list %}
-    <table class="tablaList">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for cliente in cliente_list %}
-            <tr>
-                <td>{{ cliente.nombre }}</td>
-                <td>{{ cliente.email }}</td>
-                <td>{{ cliente.telefono }}</td>
-                <td><a href="{% url 'cliente' cliente.id%}" id="botonMasInfo">Más información</a></td>
-            </tr>
-            {% endfor %}     
-        </tbody>
-    </table>
+<table class="tablaList">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in cliente_list %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.telefono }}</td>
+            <td><a href="{% url 'cliente' cliente.id%}" id="botonMasInfo">Más información</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% else %}
-    <p>No existen clientes en esta base de datos</p> 
-{% endif %}  
+<p>No existen clientes en esta base de datos</p>
+{% endif %}
 {% endblock %}

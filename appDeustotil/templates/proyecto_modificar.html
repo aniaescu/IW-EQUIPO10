@@ -4,13 +4,16 @@
 
 <!--Parte superior de la lista donde encontramos el titulo y los botones-->
 <article id="zonaSupList">
-    <section class="elementoZonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
     </section>
     <section class="elementoZonaSupList">
         <h2>Modificar proyecto</h2>
     </section>
     <section class="elementoZonaSupList" id="botonCrear">
-        <a href="{% url 'proyecto_list' %}" class="botonInfo">Volver al inicio</a> <!--Boton para volver a la lista de proyectos-->
+        <a href="{% url 'proyecto_list' %}" class="botonInfo">Volver al inicio</a>
+        <!--Boton para volver a la lista de proyectos-->
     </section>
 </article>
 

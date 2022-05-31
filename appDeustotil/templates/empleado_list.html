@@ -7,16 +7,16 @@
         <select name="select" class="select">
             <option selected value=null>---</option>
             <option value="dni">DNI</option>
-            <option value="nombre" >Nombre</option>
+            <option value="nombre">Nombre</option>
             <option value="apellidos">Apellidos</option>
             <option value="email">Email</option>
             <option value="telefono">Telefono</option>
-        </select>   
+        </select>
         <div class="input">
             <button class="boton" type="submit">
                 <i class="cursiva">Buscar</i>
             </button>
-        </div>       
+        </div>
     </div>
 </form>
 {% endblock %}
@@ -24,7 +24,9 @@
 {% block contenido %}
 <!--Titulo y botón de crear nuevo elemento-->
 <article id="zonaSupList">
-    <section class="elementoZonaSupList">
+    <section class="elementoZonaSupList" id="boton_aumentar_disminuir">
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
     </section>
     <section class="elementoZonaSupList">
         <h2>Empleados</h2>
@@ -36,26 +38,26 @@
 
 <!--Listado empleados con informacion adicional-->
 {% if empleado_list %}
-    <table class="tablaList">
-        <thead>
-            <tr>
-                <th>DNI</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for empleado in empleado_list %}
-            <tr>
-                <td>{{ empleado.dni }}</td>
-                <td>{{ empleado.nombre }}</td>
-                <td>{{ empleado.apellidos }}</td>
-                <td><a href="{% url 'empleado' empleado.id%}" id="botonMasInfo">Más información</a></td>
-            </tr>
-            {% endfor %}     
-        </tbody>
-    </table>
+<table class="tablaList">
+    <thead>
+        <tr>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for empleado in empleado_list %}
+        <tr>
+            <td>{{ empleado.dni }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellidos }}</td>
+            <td><a href="{% url 'empleado' empleado.id%}" id="botonMasInfo">Más información</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% else %}
-    <p>No existe empleado</p> 
-{% endif %}  
+<p>No existe empleado</p>
+{% endif %}
 {% endblock %}

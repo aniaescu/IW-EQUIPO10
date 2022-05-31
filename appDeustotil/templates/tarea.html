@@ -24,37 +24,37 @@
 {% if tarea %}
 <table class="formulario">
     <tr>
-        <td>Nombre</td>
+        <td><strong>Nombre:</strong></td>
         <td>{{ tarea.nombre }}</td>
     </tr>
     <tr>
-        <td>Descripcion</td>
+        <td><strong>Descripcion:</strong></td>
         <td>{{ tarea.descripcion }}</td>
     </tr>
     <tr>
-        <td>Fecha inicio</td>
+        <td><strong>Fecha inicio:</strong></td>
         <td>{{ tarea.fecha_inicio }}</td>
     </tr>
     <tr>
-        <td>Fecha fin</td>
+        <td><strong>Fecha fin:</strong></td>
         <td>{{ tarea.fecha_fin }}</td>
     </tr>
     <tr>
-        <td>Responsable</td>
+        <td><strong>Responsable:</strong></td>
         <td>{{ tarea.responsable }}</td>
     </tr>
     <tr>
-        <td>Prioridad</td>
+        <td><strong>Prioridad:</strong></td>
         <td>{{ tarea.prioridad }}</td>
     </tr>
     <tr>
-        <td>Estado</td>
+        <td><strong>Estado:</strong></td>
         <td>{{ tarea.estado }}</td>
     </tr>
     <!--En caso de que la tarea no tenga notas que no aparezca-->
     {% if tarea.notas %}
     <tr>
-        <td>Notas</td>
+        <td><strong>Notas:</strong></td>
         <td>{{ tarea.notas }}</td>
     </tr>
     {% endif %}
