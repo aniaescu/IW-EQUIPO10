@@ -398,7 +398,7 @@ html {
 #boton_aumentar_disminuir{
     justify-content: left;
 }
-
+/*boton diminuir margen*/
 #aumentar {
     margin: 10px;
 }
