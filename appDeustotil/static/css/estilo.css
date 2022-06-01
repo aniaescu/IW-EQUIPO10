@@ -209,6 +209,18 @@ table {
     color: gainsboro;
 }
 
+#mensajeContacto{
+    margin-top: 40px;
+}
+
+.formularioContacto{
+    display: flex;
+    height: 46px;
+    align-items: center;
+    padding-top: 30px;
+    justify-content: space-between;
+}
+
 .mensajerrorcliente {
     display: flex;
     height: 46px;

@@ -16,15 +16,15 @@
 <!--formulario para enviar correos-->
 <form action="/appDeustotil/contacto/" method="post" class="formulario">
     {% csrf_token %}
-    <div class="mensajerrorcliente">
+    <div class="formularioContacto">
         <label for="asunto">Asunto:</label>
         <input type="text" name="asunto" required>
     </div>
-    <div class="mensajerrorcliente">
+    <div class="formularioContacto">
         <label for="email">Correo electrónico:</label>
         <input type="text" name="email" placeholder="diegohernandez@gmail.com">
     </div>
-    <div class="mensajerrorcliente">
+    <div class="formularioContacto" id="mensajeContacto">
         <label for="mensaje">Mensaje:</label>
         <textarea name="mensaje" rows="10" cols="30" placeholder="Mensaje" required></textarea>
     </div>
