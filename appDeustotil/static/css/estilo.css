@@ -189,36 +189,13 @@ table {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 50px;
+    padding: 10px 40px 50px 40px;
 }
 
-/*
-label{
-    margin-top:10px;
-    margin-bottom: 10px;
-    
-}
-
-input{
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-
-select{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-
-textarea{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-*/
 #botonFormulario {
     border: solid black 1px;
     padding: 5px;
-    margin: 30px 20px 0 20px;
+    margin: 40px 20px 0 20px;
     background-color: black;
     color: gainsboro;
 }
@@ -235,8 +212,9 @@ textarea{
 .mensajerrorcliente {
     display: flex;
     height: 46px;
-    align-items: baseline;
+    align-items: center;
     padding-top: 30px;
+    justify-content: space-around;
 }
 
 
@@ -345,7 +323,7 @@ html {
     border-radius: 10px;
 }
 
-#id_nombre,
+#id_usuario,
 #id_contraseña {
     border: none;
     padding: 10px;
@@ -353,18 +331,18 @@ html {
     border-bottom: solid 1px #49454567;
 }
 
-#id_nombre:focus,
+#id_usuario:focus,
 #id_contraseña:focus {
     border-radius: 8px;
 }
 
 #botonLogin {
-    background: #c31432;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    background: #c31432;
     /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #240b36, #c31432);
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #240b36, #c31432);
     padding: 20px;
     color: #fff;
     border: none;
@@ -372,9 +350,11 @@ html {
     margin-top: 20px;
     font-size: 16px;
     cursor: pointer;
+
 }
 
 /*AMPLIAR-DISMINUIR TEXTO*/
+
 .f0 {
     font-size: 0.8rem;
 }
@@ -406,7 +386,9 @@ html {
 #boton_aumentar_disminuir{
     justify-content: left;
 }
+
 /*boton diminuir margen*/
+
 #aumentar {
     margin: 10px;
 }

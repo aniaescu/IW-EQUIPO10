@@ -35,6 +35,6 @@ class ContactoForm(forms.ModelForm):
 
 # Form login
 class LoginForm(forms.Form):
-    nombre = forms.CharField(label='Introduce tu nombre', max_length=100)
+    usuario = forms.CharField(label='Introduce tu nombre de usuario', max_length=100)
     contraseña = forms.CharField(label='Introduce tu contraseña', max_length=7)
 

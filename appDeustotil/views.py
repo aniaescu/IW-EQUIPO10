@@ -500,7 +500,7 @@ def loginform(request):
 def login(request):
     form = LoginForm(request.POST)
     if form.is_valid():
-        nombre = form.cleaned_data['nombre']
+        nombre = form.cleaned_data['usuario']
         contraseña = form.cleaned_data['contraseña']
 
         usuarios = Empleado.objects.order_by('nombre')

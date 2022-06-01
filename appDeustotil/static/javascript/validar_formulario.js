@@ -1,6 +1,6 @@
-// validar formulario de los campos de empleado
+// Validar formulario de los campos de empleado
 
-//funcion que sirve para definir si un telefono teien la longitud idenea o no, en caso de que no sea correcto se escribira un mensaje
+// Funcion que sirve para definir si un telefono teien la longitud idenea o no, en caso de que no sea correcto se escribira un mensaje
 function addItemtel(event) {
 
     let telefono = document.getElementById("id_telefono");
@@ -16,9 +16,9 @@ function addItemtel(event) {
             return
         }
 
-  }
+}
 
-  // funcion para comprobar que en el campo nombre no hay caracteres especiales, en caso de que asi sea se escribira un mensaje
+// Funcion para comprobar que en el campo nombre no hay caracteres especiales, en caso de que asi sea se escribira un mensaje
 function addItem(event) {
     let nombre = document.getElementById("nombre");
     let valor = event.currentTarget.value
@@ -32,12 +32,11 @@ function addItem(event) {
             return
         }
        
-
 }
 
 
-//funcion para comprobar si hay algun error en los campos anteriores, en caso de que no fuese asi se añadiria el registro
-  function error(event){
+// Funcion para comprobar si hay algun error en los campos anteriores, en caso de que no fuese asi se añadiria el registro
+function error(event){
     event.preventDefault();
     if (location.href = 'http://127.0.0.1:8000/appDeustotil/clientes/create/'){
         let principal = document.getElementById("parrafoerrortelefono");
@@ -48,16 +47,19 @@ function addItem(event) {
                 this.submit();
             }
     }
-    }
-  /* AÑADIR CONTROLADORES */
-  //controlador, para detectar lo que va escribiendo en el campo telefono
-  let tel = document.getElementById("id_telefono");
-  tel.addEventListener("keyup", addItemtel)  
-  //controlador, para detectar lo que va escribiendo en el campo nombre
-  let nom = document.getElementById("nombre");
-  nom.addEventListener("keyup", addItem);
+}
 
-  //controlador que detecta cuando hemos pulsado el boton
-  let boton = document.getElementById("botonFormulario");
-  boton.addEventListener("submit", error);
 
+/* AÑADIR CONTROLADORES */
+
+// Controlador, para detectar lo que va escribiendo en el campo telefono
+let tel = document.getElementById("id_telefono");
+tel.addEventListener("keyup", addItemtel)  
+  
+// Controlador, para detectar lo que va escribiendo en el campo nombre
+let nom = document.getElementById("nombre");
+nom.addEventListener("keyup", addItem);
+
+// Controlador que detecta cuando hemos pulsado el boton
+let boton = document.getElementById("botonFormulario");
+boton.addEventListener("submit", error);
